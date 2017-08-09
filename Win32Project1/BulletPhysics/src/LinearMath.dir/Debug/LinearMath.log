@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(1755,5): warning : The referenced project 'C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\ZERO_CHECK.vcxproj' does not exist.
+  Building Custom Rule C:/Users/admin/Documents/bullet3-master/src/LinearMath/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/admin/Desktop/my--Base-Directx11_2/Win32Project1/BulletPhysics/src/LinearMath/CMakeFiles/generate.stamp is up-to-date.
+  btAlignedAllocator.cpp
+  btConvexHull.cpp
+  btConvexHullComputer.cpp
+  btGeometryUtil.cpp
+  btPolarDecomposition.cpp
+  btQuickprof.cpp
+  btSerializer.cpp
+  btSerializer64.cpp
+  btThreads.cpp
+  btVector3.cpp
+  코드를 생성하고 있습니다...
+  LinearMath.vcxproj -> C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug\LinearMath_Debug.lib

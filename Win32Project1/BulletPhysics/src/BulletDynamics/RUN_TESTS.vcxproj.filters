@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\CMakeFiles\8d92fa0fd2374c4f7d38a3cdd93d339c\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EF8176E0-4838-311A-8CE8-5B46BCE3CD19}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

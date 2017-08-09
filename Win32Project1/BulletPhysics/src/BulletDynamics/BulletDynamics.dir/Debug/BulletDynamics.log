@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(1755,5): warning : The referenced project 'C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\ZERO_CHECK.vcxproj' does not exist.
+  BulletDynamics.vcxproj -> C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug\BulletDynamics_Debug.lib

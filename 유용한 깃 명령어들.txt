@@ -1,0 +1,5 @@
+git gc --prune=now --aggressive  
+
+위에꺼 하고 아래꺼 하고 따로따로.
+
+git repack

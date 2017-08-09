@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="CustomWindow.h" />
+    <ClInclude Include="d3dclass.h" />
+    <ClInclude Include="d3dutil.h" />
+    <ClInclude Include="GameTimer.h" />
+    <ClInclude Include="cube.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="cube_tex.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="textureclass.h" />
+    <ClInclude Include="cube_normal.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="gameObject.h" />
+    <ClInclude Include="Types.h" />
+    <ClInclude Include="modelNodes.h">
+      <Filter>Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="animationData.h">
+      <Filter>Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPathfinder.h" />
+    <ClInclude Include="gameCamera.h" />
+    <ClInclude Include="KeyManager.h" />
+    <ClInclude Include="Level.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUIObject.h">
+      <Filter>HTML_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="HTMLTexture.h">
+      <Filter>HTML_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUIScene.h">
+      <Filter>HTML_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPhysicsWorld.h">
+      <Filter>Physcis</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="CustomWindow.cpp" />
+    <ClCompile Include="d3dclass.cpp" />
+    <ClCompile Include="d3dutil.cpp" />
+    <ClCompile Include="GameTimer.cpp" />
+    <ClCompile Include="cube.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="cube_tex.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="textureclass.cpp" />
+    <ClCompile Include="cube_normal.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject.cpp" />
+    <ClCompile Include="animationData.cpp">
+      <Filter>Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="MyPathfinder.cpp" />
+    <ClCompile Include="gameCamera.cpp" />
+    <ClCompile Include="KeyManager.cpp" />
+    <ClCompile Include="Level.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUIObject.cpp">
+      <Filter>HTML_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HTMLTexture.cpp">
+      <Filter>HTML_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUIScene.cpp">
+      <Filter>HTML_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MyPhysicsWorld.cpp">
+      <Filter>Physcis</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{966f66b0-670b-4eb2-a410-db3c48007fff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loader">
+      <UniqueIdentifier>{944e445c-212d-41ce-aa36-956c36ba1ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{60d51ced-9ae4-40ce-944f-ba0eb5b2e08e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HTML_UI">
+      <UniqueIdentifier>{f7ebf982-153b-4354-9632-03af7364534e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{a6ead7a4-add2-4e0c-b5ea-98d93b638949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physcis">
+      <UniqueIdentifier>{40ca3222-2f70-4d6e-8d8c-4fa046013674}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="cube_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="cube_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="cube_tex_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="cube_tex_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="cube_normal_ps.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="cube_normal_vs.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Win32Project1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HTMLPage.htm" />
+  </ItemGroup>
+</Project>
