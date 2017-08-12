@@ -30,13 +30,14 @@ public:
 
 	void load(string url,int xpos,int ypos,int width,int height,int textureWidth,int textureHeight);
 	void render();
-
+	void setAlwaysRender(bool _always);
 public:
-	WebView* m_view=nullptr; //same as Tab in browser
+	WebView* m_view=nullptr; //same as Tab of browser
 
 	ID3D11Texture2D* m_texture;
 	ID3D11ShaderResourceView*  m_textureView;
-	
+
 	RECT m_rect;
+	bool m_isAlwaysRender=false;
 };
 

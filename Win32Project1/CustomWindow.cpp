@@ -65,7 +65,6 @@ HWND& CustomWindow::GetHandle()
 
 LRESULT CustomWindow::CustomMsgProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	RECT rectDlg, rectParent = {};
 
 	int a = 0;
 	POINT pt = {};

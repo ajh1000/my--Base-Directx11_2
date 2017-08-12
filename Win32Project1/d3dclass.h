@@ -49,7 +49,8 @@ private:
 	D3DXMATRIX m_worldMatrix;
 	D3DXMATRIX m_orthoMatrix;
 
-	//gameCamera* mainCamera=nullptr;
+	ID3D11BlendState* m_blendState = nullptr;
+
 	GameCamera* mainCamera=nullptr;
 
 	Level level;

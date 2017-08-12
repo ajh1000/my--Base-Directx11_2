@@ -393,6 +393,28 @@ bool D3DClass::Initialize(HWND hwnd)
 	// Create an orthographic projection matrix for 2D rendering.
 	D3DXMatrixOrthoLH(&m_orthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
+	
+	D3D11_BLEND_DESC omDesc;
+	ZeroMemory(&omDesc, sizeof(D3D11_BLEND_DESC));
+
+	omDesc.RenderTarget[0].BlendEnable = TRUE;
+	omDesc.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+	omDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	omDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	omDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+
+	omDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	omDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	omDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+
+	omDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+
+
+	HRESULT hresult = gameUtil.getDevice()->CreateBlendState(&omDesc, &m_blendState);
+
+	gameUtil.getDeviceContext()->OMSetBlendState(m_blendState, 0, 0xffffffff);
+
 
 	//view,proj,ortho mat set
 	mainCamera = new GameCamera();
@@ -464,6 +486,8 @@ void D3DClass::Shutdown()
 		m_swapChain = 0;
 	}
 
+	SAFE_DELETE(mainCamera);
+	SAFE_RELEASE(m_blendState);
 	return;
 }
 

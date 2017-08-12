@@ -106,6 +106,15 @@ struct vertex_ptn_skinned_xm
 ////  CBUFFERS   ///
 ////////////////////
 
+
+struct AlphaBlendBuffer
+{
+	AlphaBlendBuffer() { ZeroMemory(padding, sizeof(float) * 3); alpha = 1.f; }
+	float alpha;
+	float padding[3];
+};
+
+
 struct matrix_WorldViewProj
 {
 	D3DXMATRIX world;
@@ -153,6 +162,8 @@ struct boneTMBuffer
 	}
 	XMFLOAT4X4 transform[96];
 };
+
+
 
 /*
 하나의 변수로 공유를 하는것이 아님.

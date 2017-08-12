@@ -33,6 +33,7 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 		gameTimer.update();
 	}
 
+	direct3d.Shutdown();
 
 	return 0;
 }

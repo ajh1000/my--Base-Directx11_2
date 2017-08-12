@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "GameUIScene.h"
-
+#include "UImenu.h"
 
 GameUIScene::GameUIScene()
 {
@@ -23,9 +23,20 @@ void GameUIScene::init()
 {
 	initDepthStencilState();
 
-	GameUIObject* test = new GameUIObject();
-	test->init(0, 0, 800, 450,1920,800, "https://www.google.co.kr/");
-	m_vecGameUIObjects.push_back(test);
+	UImenu * titleMenu = new UImenu();
+	titleMenu->init(0, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
+	titleMenu->m_htmlTexture.setAlwaysRender(true);
+	
+	UImenu * titleMenu2 = new UImenu();
+	titleMenu2->init(200, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
+
+	UImenu * titleMenu3 = new UImenu();
+	titleMenu3->init(400, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
+
+
+	m_vecGameUIObjects.push_back(titleMenu);
+	m_vecGameUIObjects.push_back(titleMenu2);
+	m_vecGameUIObjects.push_back(titleMenu3);
 }
 
 void GameUIScene::update()

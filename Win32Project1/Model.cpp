@@ -353,7 +353,7 @@ void Model::init(char * dir, char * FileName)
 	Init_polygonLayout(EPolygonLayout::LAYOUT_PTN_SKINNED);
 	Init_CreateConstantBuffer(&m_LightBuffer, sizeof(LightBuffer));
 	Init_CreateConstantBuffer(&m_boneBuffer, sizeof(XMFLOAT4X4) * 96);
-
+	Init_CreateConstantBuffer(&m_AlphaBlendBuffer, sizeof(AlphaBlendBuffer));
 
 	m_dir = dir;
 	m_fileName = FileName;
@@ -438,6 +438,7 @@ void Model::init(char * dir, char * FileName)
 	m_lightProperties.diffuseColor = D3DXVECTOR4(1, 1, 1, 1);
 	m_lightProperties.lightDirection = D3DXVECTOR3(0.0f, -1.f, 0.f);
 
+	m_alphaProperty.alpha = 1.f;
 
 	D3D11_SAMPLER_DESC samplerDesc;
 	samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
@@ -973,7 +974,8 @@ void Model::render()
 	D3DXMatrixTranspose(&wvp.view, &wvp.view);
 
 	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp);
-	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
+	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties, 0);
+	SetPSParameters<AlphaBlendBuffer>(m_AlphaBlendBuffer, m_alphaProperty,1);
 
 
 

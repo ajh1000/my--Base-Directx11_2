@@ -15,6 +15,7 @@ MyPathfinder::~MyPathfinder()
 		dtFreeCrowd(crowd);
 	if (navMesh)
 		dtFreeNavMesh(navMesh);
+
 }
 
 dtNavMesh* MyPathfinder::loadAll(const char* path)
@@ -55,6 +56,7 @@ dtNavMesh* MyPathfinder::loadAll(const char* path)
 	}
 
 	// Read tiles.
+	
 	for (int i = 0; i < header.numTiles; ++i)
 	{
 		NavMeshTileHeader tileHeader;

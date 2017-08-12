@@ -285,11 +285,11 @@ void Level::render()
 		}
 		(*it)->render();
 	}
-
+	/*
 	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
 	{
 		gameUtil.m_vecEnemys[i]->render();
-	}
+	}*/
 
 	m_uiScene.render();
 }

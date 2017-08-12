@@ -196,6 +196,7 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="gameCamera.h" />
+    <ClInclude Include="UImenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animationData.cpp" />
@@ -226,6 +227,7 @@
     <ClCompile Include="textureclass.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="gameCamera.cpp" />
+    <ClCompile Include="UImenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="cube_normal_ps.hlsl">
@@ -290,9 +292,6 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Win32Project1.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HTMLPage.htm">

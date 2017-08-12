@@ -5,13 +5,18 @@
 Texture2D shaderTexture;
 SamplerState SampleType;
 
-cbuffer LightBuffer
+cbuffer LightBuffer : register(c0)
 {
     float4 diffuseColor;
     float3 lightDirection;
-    float padding;
+    float LightBufferpadding;
 };
 
+cbuffer AlphaBlendBuffer : register(c1)
+{
+	float alpha;
+	float3 BlendBufferPadding;
+};
 
 //////////////
 // TYPEDEFS //
@@ -51,6 +56,7 @@ float4 main(PixelInputType input) : SV_TARGET
     
     // Multiply the texture pixel and the final diffuse color to get the final pixel color result.
     color = color * textureColor;
-    //color = textureColor;
+	color.a = alpha;
+
     return color;
 }

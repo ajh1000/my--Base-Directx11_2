@@ -5,7 +5,7 @@ WebInstance::WebInstance() :
 	m_webCore(nullptr)
 {
 	WebConfig config = WebConfig();
-//	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+	//	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
 	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
 
 	m_webCore = WebCore::Initialize(config);
@@ -22,6 +22,7 @@ void WebInstance::release()
 	{
 		WebCore::Shutdown();
 	}
+
 }
 
 
@@ -40,8 +41,9 @@ HTMLTexture::~HTMLTexture()
 		m_view->Destroy();
 		m_view = 0;
 	}
-	SAFE_RELEASE(m_texture)
-	SAFE_RELEASE(m_textureView)
+	SAFE_RELEASE(m_texture);
+	SAFE_RELEASE(m_textureView);
+
 }
 
 void HTMLTexture::load(string url, int xpos, int ypos, int width, int height, int textureWidth, int textureHeight)
@@ -51,22 +53,22 @@ void HTMLTexture::load(string url, int xpos, int ypos, int width, int height, in
 	m_rect.right = width;
 	m_rect.bottom = height;
 
-	m_view = getWebInstance.m_webCore->CreateWebView(textureWidth, textureHeight);
+	m_view = getWebInstance.m_webCore->CreateWebView(textureWidth + 50, textureHeight + 50);
 
 	m_view->SetTransparent(true);
 
 	//WebURL webUrl(WSLit(url.c_str()));
-	WebURL webUrl(WSLit("file:///C:/Users/admin/Desktop/my--Base-Directx11_2/Win32Project1/HTMLPage.htm"));
+	WebURL webUrl(WSLit(url.c_str()));
 	m_view->LoadURL(webUrl);
-/*
-	while (m_view->IsLoading())
-		getWebInstance.m_webCore->Update();*/
+	/*
+		while (m_view->IsLoading())
+			getWebInstance.m_webCore->Update();*/
 
 
 	BitmapSurface* surface = (BitmapSurface*)m_view->surface();
 
 
-	CD3D11_TEXTURE2D_DESC desc = CD3D11_TEXTURE2D_DESC(DXGI_FORMAT_B8G8R8A8_UNORM, width, height, 1, 1);
+	CD3D11_TEXTURE2D_DESC desc = CD3D11_TEXTURE2D_DESC(DXGI_FORMAT_B8G8R8A8_UNORM, textureWidth, textureHeight, 1, 1);
 	gameDevice->CreateTexture2D(&desc, nullptr, &m_texture);
 	gameDevice->CreateShaderResourceView(m_texture, 0, &m_textureView);
 }
@@ -74,8 +76,8 @@ void HTMLTexture::load(string url, int xpos, int ypos, int width, int height, in
 void HTMLTexture::render()
 {
 	POINT pt = { gameUtil.m_mouseX,gameUtil.m_mouseY };
-	
-	if (PtInRect(&m_rect, pt))
+
+	if (m_isAlwaysRender || PtInRect(&m_rect, pt))
 	{
 		if (m_view) {
 			getWebInstance.m_webCore->Update();
@@ -90,6 +92,11 @@ void HTMLTexture::render()
 
 
 	gameDeviceContext->PSSetShaderResources(0, 1, &m_textureView);
+}
+
+void HTMLTexture::setAlwaysRender(bool _always)
+{
+	m_isAlwaysRender = _always;
 }
 
 

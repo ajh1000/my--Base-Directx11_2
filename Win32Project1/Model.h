@@ -45,16 +45,21 @@ public:
 	vector<UINT> m_indices;
 	BoundingBox m_box;
 	string m_AnimName;
-	LightBuffer m_lightProperties = {};
+
 private:
 	void settingTextures(const aiScene* pScene, string dir);
 	//void loadMaterial(_In_ KsmModelMesh* ksmMesh,_In_ const aiMesh* sourceMesh);
 	string getFileNameOnly(const string src);
 
+public:
+
+	LightBuffer m_lightProperties = {};
+	AlphaBlendBuffer m_alphaProperty;
 private:
-	ID3D11Buffer* m_LightBuffer = 0;
 
 	ID3D11Buffer* m_boneBuffer = nullptr;
+	ID3D11Buffer* m_LightBuffer = nullptr;
+	ID3D11Buffer* m_AlphaBlendBuffer = nullptr;
 
 private:
 	string m_dir, m_fileName;

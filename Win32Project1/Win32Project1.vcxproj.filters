@@ -51,6 +51,7 @@
     <ClInclude Include="MyPhysicsWorld.h">
       <Filter>Physcis</Filter>
     </ClInclude>
+    <ClInclude Include="UImenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -98,6 +99,7 @@
     <ClCompile Include="MyPhysicsWorld.cpp">
       <Filter>Physcis</Filter>
     </ClCompile>
+    <ClCompile Include="UImenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shaders">
@@ -140,9 +142,8 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Win32Project1.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="HTMLPage.htm" />
+    <None Include="HTMLPage.htm">
+      <Filter>HTML_UI</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -42,10 +42,10 @@ protected: //MUST USE
 		D3D11_BIND_FLAG bindFlags, UINT CPUAccessFlags);
 
 	template<typename  Type>
-	void SetVSParameters(ID3D11Buffer* buffer, Type& data);
+	void SetVSParameters(ID3D11Buffer* buffer, Type& data, UINT slotNumber = 0);
 
 	template<typename  Type>
-	void SetPSParameters(ID3D11Buffer* buffer, Type& data);
+	void SetPSParameters(ID3D11Buffer* buffer, Type& data, UINT slotNumber = 0);
 
 public:
 	virtual void init();
@@ -82,10 +82,9 @@ protected:
 
 
 template<typename  Type>
-inline void gameObject::SetVSParameters(ID3D11Buffer* buffer, Type& data)
+inline void gameObject::SetVSParameters(ID3D11Buffer* buffer, Type& data, UINT slotNumber)
 {
 	D3D11_MAPPED_SUBRESOURCE mappedResource = {};
-	unsigned int bufferNumber;
 
 	HRESULT result = gameUtil.getDeviceContext()->Map(buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 
@@ -94,15 +93,14 @@ inline void gameObject::SetVSParameters(ID3D11Buffer* buffer, Type& data)
 
 	gameUtil.getDeviceContext()->Unmap(buffer, 0);
 	
-	bufferNumber =0;
-	gameUtil.getDeviceContext()->VSSetConstantBuffers(bufferNumber, 1, &buffer);
+	gameUtil.getDeviceContext()->VSSetConstantBuffers(slotNumber, 1, &buffer);
 }
 
+
 template<typename Type>
-inline void gameObject::SetPSParameters(ID3D11Buffer* buffer, Type & data)
+inline void gameObject::SetPSParameters(ID3D11Buffer* buffer, Type & data, UINT slotNumber)
 {
 	D3D11_MAPPED_SUBRESOURCE mappedResource = {};
-	unsigned int bufferNumber;
 
 	HRESULT result = gameUtil.getDeviceContext()->Map(buffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 
@@ -112,6 +110,5 @@ inline void gameObject::SetPSParameters(ID3D11Buffer* buffer, Type & data)
 
 	gameUtil.getDeviceContext()->Unmap(buffer, 0);
 
-	bufferNumber = 0;
-	gameUtil.getDeviceContext()->PSSetConstantBuffers(bufferNumber, 1, &buffer);
+	gameUtil.getDeviceContext()->PSSetConstantBuffers(slotNumber, 1, &buffer);
 }

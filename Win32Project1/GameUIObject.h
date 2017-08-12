@@ -17,7 +17,7 @@ public:
 	virtual void update();
 	virtual void render();
 
-protected:
+public:
 	HTMLTexture m_htmlTexture;
 };
 
