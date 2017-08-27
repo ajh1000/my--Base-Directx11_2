@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameUIScene.h"
 #include "UImenu.h"
+#include "UIhealthBar.h"
 
 GameUIScene::GameUIScene()
 {
@@ -13,7 +14,8 @@ GameUIScene::~GameUIScene()
 	{
 		SAFE_DELETE(m_vecGameUIObjects[i]);
 	}
-	WebInstance::GetInstance().release();
+
+	WebCore::Shutdown();
 
 	SAFE_RELEASE(m_depthDisabledStencilState)
 	SAFE_RELEASE(m_depthStencilState)
@@ -23,27 +25,46 @@ void GameUIScene::init()
 {
 	initDepthStencilState();
 
-	UImenu * titleMenu = new UImenu();
-	titleMenu->init(0, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
-	titleMenu->m_htmlTexture.setAlwaysRender(true);
+	//http://35.194.212.122/ Apache2 WebServer running on the google cloud. Base OS : ubuntu. 24hour 365day.
+	WebConfig config = WebConfig();
+	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
+	config.log_level = Awesomium::LogLevel::kLogLevel_Verbose;
 	
-	UImenu * titleMenu2 = new UImenu();
-	titleMenu2->init(200, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
 
-	UImenu * titleMenu3 = new UImenu();
-	titleMenu3->init(400, 0, 500, 500, 500, 500, "http://35.194.212.122/ui/index.html");
+	WebCore::Initialize(config);
 
+
+	RECT rect;
+	GetClientRect(gameUtil.GetHWND(), &rect);
+	int titleX = rect.right  / 2 - 160;
+	int titleY = rect.bottom / 2 - 85;
+
+	UImenu * titleMenu = new UImenu();
+	titleMenu->init(titleX, titleY, 320, 190, 320, 190, "http://35.194.212.122/ui/TitleMenu.html");
+	titleMenu->setEnable(true);
+	titleMenu->m_htmlTexture.setAlwaysRender(true);
+	m_mapUI["titleMenu"] = titleMenu;
+
+	UIhealthBar* healthBar = new UIhealthBar();
+	healthBar->init(0, 0, 300, 70, 300, 70, "http://35.194.212.122/ui/healthBar.html");
+	healthBar->setEnable(false);
+	healthBar->m_htmlTexture.setAlwaysRender(true);
+	m_mapUI["healthBar"] = healthBar;
 
 	m_vecGameUIObjects.push_back(titleMenu);
-	m_vecGameUIObjects.push_back(titleMenu2);
-	m_vecGameUIObjects.push_back(titleMenu3);
+	m_vecGameUIObjects.push_back(healthBar);
 }
 
 void GameUIScene::update()
 {
+
 	for (int i = 0; i < m_vecGameUIObjects.size(); ++i)
 	{
-		m_vecGameUIObjects[i]->update();
+		if (m_vecGameUIObjects[i]->m_isEnabled == true)
+		{
+			m_vecGameUIObjects[i]->update();
+		}
+		
 	}
 }
 
@@ -53,7 +74,10 @@ void GameUIScene::render()
 	
 	for (int i = 0; i < m_vecGameUIObjects.size(); ++i)
 	{
-		m_vecGameUIObjects[i]->render();
+		if (m_vecGameUIObjects[i]->m_isEnabled == true)
+		{
+			m_vecGameUIObjects[i]->render();
+		}
 	}
 
 	TurnZBufferOn();

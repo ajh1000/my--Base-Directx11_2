@@ -14,9 +14,10 @@ public:
 private:
 	void TurnZBufferOn();
 	void TurnZBufferOff();
-private:
+public:
 	vector<GameUIObject*> m_vecGameUIObjects;
-	
+	map<string, GameUIObject*> m_mapUI;
+private:
 	ID3D11DepthStencilState* m_depthStencilState = nullptr;
 	ID3D11DepthStencilState* m_depthDisabledStencilState=nullptr;
 

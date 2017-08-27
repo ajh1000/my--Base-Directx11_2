@@ -27,7 +27,7 @@ void Terrain::init()
 	CreateTerrain(5,5,4,4);
 
 
-	super::Init_CreateVertexBuffer(&m_vertices.front(), sizeof(vertex_ptn), m_vertices.size(), D3D11_USAGE_DEFAULT,
+	gameObject::Init_CreateVertexBuffer(&m_vertices.front(), sizeof(vertex_ptn), m_vertices.size(), D3D11_USAGE_DEFAULT,
 		D3D11_BIND_VERTEX_BUFFER, 0);
 	Init_option_CreateIndexBuffer(&m_indices.front(), sizeof(UINT), m_indices.size(), D3D11_USAGE_DEFAULT,
 		D3D11_BIND_INDEX_BUFFER, 0);

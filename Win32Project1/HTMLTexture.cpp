@@ -1,30 +1,6 @@
 #include "stdafx.h"
 #include "HTMLTexture.h"
 
-WebInstance::WebInstance() :
-	m_webCore(nullptr)
-{
-	WebConfig config = WebConfig();
-	//	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
-	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
-
-	m_webCore = WebCore::Initialize(config);
-
-}
-
-WebInstance::~WebInstance()
-{
-}
-
-void WebInstance::release()
-{
-	if (m_webCore)
-	{
-		WebCore::Shutdown();
-	}
-
-}
-
 
 HTMLTexture::HTMLTexture() :
 	m_texture(nullptr),
@@ -36,37 +12,35 @@ HTMLTexture::HTMLTexture() :
 
 HTMLTexture::~HTMLTexture()
 {
-	if (m_view)
-	{
-		m_view->Destroy();
-		m_view = 0;
-	}
 	SAFE_RELEASE(m_texture);
 	SAFE_RELEASE(m_textureView);
-
+	
 }
 
 void HTMLTexture::load(string url, int xpos, int ypos, int width, int height, int textureWidth, int textureHeight)
 {
 	m_rect.left = xpos;
 	m_rect.top = ypos;
-	m_rect.right = width;
-	m_rect.bottom = height;
+	m_rect.right = xpos+ width;
+	m_rect.bottom = ypos+ height;
 
-	m_view = getWebInstance.m_webCore->CreateWebView(textureWidth + 50, textureHeight + 50);
+	WebPreferences pref;
+	pref.enable_web_audio = true;
+	pref.enable_web_gl = true;
+	pref.enable_gpu_acceleration = true;
+	WebString my_string = WebString::CreateFromUTF8("", strlen(""));
+
+	m_webSession = WebCore::instance()->CreateWebSession(my_string, pref);
+	
+	m_view = WebCore::instance()->CreateWebView(textureWidth + 50, textureHeight + 50, m_webSession);
 
 	m_view->SetTransparent(true);
 
-	//WebURL webUrl(WSLit(url.c_str()));
 	WebURL webUrl(WSLit(url.c_str()));
 	m_view->LoadURL(webUrl);
-	/*
-		while (m_view->IsLoading())
-			getWebInstance.m_webCore->Update();*/
-
 
 	BitmapSurface* surface = (BitmapSurface*)m_view->surface();
-
+	
 
 	CD3D11_TEXTURE2D_DESC desc = CD3D11_TEXTURE2D_DESC(DXGI_FORMAT_B8G8R8A8_UNORM, textureWidth, textureHeight, 1, 1);
 	gameDevice->CreateTexture2D(&desc, nullptr, &m_texture);
@@ -80,7 +54,7 @@ void HTMLTexture::render()
 	if (m_isAlwaysRender || PtInRect(&m_rect, pt))
 	{
 		if (m_view) {
-			getWebInstance.m_webCore->Update();
+			WebCore::instance()->Update();
 			Awesomium::BitmapSurface * surface = static_cast<Awesomium::BitmapSurface *>(m_view->surface());
 			if (surface != nullptr)
 			{
@@ -97,6 +71,36 @@ void HTMLTexture::render()
 void HTMLTexture::setAlwaysRender(bool _always)
 {
 	m_isAlwaysRender = _always;
+}
+
+void HTMLTexture::injectLButtonDown(int x, int y)
+{
+	int mouseX, mouseY;
+	POINT pt = { x, y };
+
+	if (PtInRect(&m_rect, pt))
+	{
+		mouseX = pt.x - m_rect.left;
+		mouseY = pt.y - m_rect.top;
+
+		m_view->InjectMouseMove(mouseX, mouseY);
+		m_view->InjectMouseDown(MouseButton::kMouseButton_Left);
+	}
+}
+
+void HTMLTexture::injectLButtonUp(int x, int y)
+{
+	int mouseX, mouseY;
+	POINT pt = { x, y };
+
+	if (PtInRect(&m_rect, pt))
+	{
+		mouseX = pt.x - m_rect.left;
+		mouseY = pt.y - m_rect.top;
+
+		m_view->InjectMouseMove(mouseX, mouseY);
+		m_view->InjectMouseUp(MouseButton::kMouseButton_Left);
+	}
 }
 
 

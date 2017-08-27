@@ -30,7 +30,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_pc[0].AlignedByteOffset = 0;
 	layout_pc[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_pc[0].InstanceDataStepRate = 0;
-	
+
 	layout_pc[1].SemanticName = "COLOR";
 	layout_pc[1].SemanticIndex = 0;
 	layout_pc[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
@@ -47,7 +47,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_pt[0].AlignedByteOffset = 0;
 	layout_pt[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_pt[0].InstanceDataStepRate = 0;
-	
+
 	layout_pt[1].SemanticName = "TEXCOORD";
 	layout_pt[1].SemanticIndex = 0;
 	layout_pt[1].Format = DXGI_FORMAT_R32G32_FLOAT;
@@ -65,7 +65,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_ptn[0].AlignedByteOffset = 0;
 	layout_ptn[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_ptn[0].InstanceDataStepRate = 0;
-	
+
 	layout_ptn[1].SemanticName = "TEXCOORD";
 	layout_ptn[1].SemanticIndex = 0;
 	layout_ptn[1].Format = DXGI_FORMAT_R32G32_FLOAT;
@@ -73,7 +73,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_ptn[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	layout_ptn[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_ptn[1].InstanceDataStepRate = 0;
-	
+
 	layout_ptn[2].SemanticName = "NORMAL";
 	layout_ptn[2].SemanticIndex = 0;
 	layout_ptn[2].Format = DXGI_FORMAT_R32G32B32_FLOAT;
@@ -90,7 +90,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_ptn_skinned[0].AlignedByteOffset = 0;
 	layout_ptn_skinned[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_ptn_skinned[0].InstanceDataStepRate = 0;
-	
+
 	layout_ptn_skinned[1].SemanticName = "TEXCOORD";
 	layout_ptn_skinned[1].SemanticIndex = 0;
 	layout_ptn_skinned[1].Format = DXGI_FORMAT_R32G32_FLOAT;
@@ -98,7 +98,7 @@ void gameObject::settingDeafaultLayouts()
 	layout_ptn_skinned[1].AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	layout_ptn_skinned[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	layout_ptn_skinned[1].InstanceDataStepRate = 0;
-	
+
 	layout_ptn_skinned[2].SemanticName = "NORMAL";
 	layout_ptn_skinned[2].SemanticIndex = 0;
 	layout_ptn_skinned[2].Format = DXGI_FORMAT_R32G32B32_FLOAT;
@@ -128,30 +128,30 @@ void gameObject::settingDeafaultLayouts()
 void gameObject::Init_compileShader(char * vsDir, char * psDir)
 {
 	HRESULT result, result2;
-	result=D3DX11CompileFromFile(vsDir, NULL, NULL, "main", "vs_4_0", D3D10_SHADER_ENABLE_STRICTNESS|D3D10_SHADER_DEBUG |D3D10_SHADER_SKIP_OPTIMIZATION,0, NULL,
+	result = D3DX11CompileFromFile(vsDir, NULL, NULL, "main", "vs_4_0", D3D10_SHADER_ENABLE_STRICTNESS | D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION, 0, NULL,
 		&m_vsblob, NULL, NULL);
-	
 
 
-	result2=D3DX11CompileFromFile(psDir, NULL, NULL, "main", "ps_4_0", D3D10_SHADER_ENABLE_STRICTNESS | D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION, 0, NULL,
+
+	result2 = D3DX11CompileFromFile(psDir, NULL, NULL, "main", "ps_4_0", D3D10_SHADER_ENABLE_STRICTNESS | D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION, 0, NULL,
 		&m_psblob, NULL, NULL);
-	
+
 	//assert는 디버그 빌드일때만 작동.
 	//릴리즈 빌드일때도 작동할려면 메시지박스로 띄우고 시스템종료하든가해야함.
 	//false일때만 작동.
 	//assert(!(m_vsblob == nullptr || m_psblob == nullptr)); 
 
-	IF_ERROR_MSGBOX(m_vsblob == nullptr || m_psblob == nullptr, "shader compile error");
+	ERROR_MSGBOX(m_vsblob == nullptr || m_psblob == nullptr, "shader compile error");
 
 	gameUtil.getDevice()->CreateVertexShader(m_vsblob->GetBufferPointer(), m_vsblob->GetBufferSize(), 0, &m_vs);
 	gameUtil.getDevice()->CreatePixelShader(m_psblob->GetBufferPointer(), m_psblob->GetBufferSize(), 0, &m_ps);
 
-	
+
 }
 
 void gameObject::Init_polygonLayout(EPolygonLayout eType)
 {
-	if (eType == EPolygonLayout::LAYOUT_PC) 
+	if (eType == EPolygonLayout::LAYOUT_PC)
 	{
 		gameUtil.getDevice()->CreateInputLayout(layout_pc, 2, m_vsblob->GetBufferPointer(),
 			m_vsblob->GetBufferSize(), &m_layout);
@@ -181,7 +181,7 @@ void gameObject::Init_polygonLayout(EPolygonLayout eType)
 	}
 	else if (eType == EPolygonLayout::LAYOUT_PTN)
 	{
-		gameUtil.getDevice()->CreateInputLayout(layout_ptn	, 3, m_vsblob->GetBufferPointer(),
+		gameUtil.getDevice()->CreateInputLayout(layout_ptn, 3, m_vsblob->GetBufferPointer(),
 			m_vsblob->GetBufferSize(), &m_layout);
 	}
 	else if (eType == EPolygonLayout::LAYOUT_PTN_SKINNED)
@@ -195,7 +195,7 @@ void gameObject::Init_polygonLayout(EPolygonLayout eType)
 	m_psblob->Release();
 	m_psblob = 0;
 
-	gameObject::Init_CreateConstantBuffer(&m_WVPBuffer, sizeof(matrix_WorldViewProj) );
+	gameObject::Init_CreateConstantBuffer(&m_WVPBuffer, sizeof(matrix_WorldViewProj));
 }
 
 void gameObject::Init_CreateVertexBuffer(void* pdata, int ByteWidth, UINT count, D3D11_USAGE usage,
@@ -222,7 +222,7 @@ void gameObject::Init_CreateVertexBuffer(void* pdata, int ByteWidth, UINT count,
 
 }
 
-void gameObject::Init_option_CreateIndexBuffer(void * pdata, int ByteWidth, 
+void gameObject::Init_option_CreateIndexBuffer(void * pdata, int ByteWidth,
 	UINT count, D3D11_USAGE usage, D3D11_BIND_FLAG bindFlags, UINT CPUAccessFlags)
 {
 	D3D11_BUFFER_DESC desc = {};
@@ -302,7 +302,7 @@ void gameObject::render()
 
 void gameObject::renderIndexed()
 {
-	
+
 
 	//every object have transform. so automate the code.
 	transform.buildMatrixWVP();
@@ -334,6 +334,6 @@ void gameObject::renderIndexed()
 	gameUtil.getDeviceContext()->VSSetShader(m_vs, 0, 0);
 	gameUtil.getDeviceContext()->PSSetShader(m_ps, 0, 0);
 
-	gameDeviceContext->DrawIndexed(m_indexCount,0, 0);
+	gameDeviceContext->DrawIndexed(m_indexCount, 0, 0);
 
 }

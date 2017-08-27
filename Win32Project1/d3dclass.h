@@ -15,7 +15,7 @@ public:
 	D3DClass(const D3DClass&);
 	~D3DClass();
 
-	bool Initialize(HWND hwnd);
+	bool Initialize(HWND hwnd, bool vsync=false);
 	void Shutdown();
 	
 	void update();
@@ -50,8 +50,6 @@ private:
 	D3DXMATRIX m_orthoMatrix;
 
 	ID3D11BlendState* m_blendState = nullptr;
-
-	GameCamera* mainCamera=nullptr;
 
 	Level level;
 };

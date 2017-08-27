@@ -83,7 +83,7 @@ struct modelMesh
 	//Material MeshMaterial;
 
 	// The bounding box surrounding the vertices in this mesh
-	BoundingBox MeshBoundingBox;
+	
 };
 
 struct modelNode

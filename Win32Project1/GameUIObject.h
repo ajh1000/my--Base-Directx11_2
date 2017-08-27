@@ -17,7 +17,12 @@ public:
 	virtual void update();
 	virtual void render();
 
+	void setEnable(bool enable);
+
 public:
 	HTMLTexture m_htmlTexture;
+
+public:
+	bool m_isEnabled = true;
 };
 

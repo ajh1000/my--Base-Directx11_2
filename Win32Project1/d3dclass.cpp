@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 #include "d3dclass.h"
+#include "gameCameraThirdPerson.h"
 
 D3DClass::D3DClass()
 {
@@ -27,7 +28,7 @@ D3DClass::~D3DClass()
 }
 
 
-bool D3DClass::Initialize(HWND hwnd)
+bool D3DClass::Initialize(HWND hwnd,bool vsync )
 {
 	HRESULT result;
 	IDXGIFactory* factory;
@@ -51,7 +52,6 @@ bool D3DClass::Initialize(HWND hwnd)
 	GetClientRect(hwnd, &rect);
 	int screenWidth=rect.right;
 	int screenHeight=rect.bottom;
-	bool vsync= false;
 	bool fullscreen=false;
 	float screenNear=0.3f,screenDepth=1000.f ;
 
@@ -417,11 +417,12 @@ bool D3DClass::Initialize(HWND hwnd)
 
 
 	//view,proj,ortho mat set
-	mainCamera = new GameCamera();
+	gameCameraThirdPerson* mainCamera = new gameCameraThirdPerson();
 	gameUtil.SetMainCamera(mainCamera);
 	mainCamera->setProjMatrix(m_projectionMatrix);
 	mainCamera->setOrthoMatrix(m_orthoMatrix);
 
+	
 
 	//create objects & set them into gameworld
 	level.init();
@@ -486,7 +487,9 @@ void D3DClass::Shutdown()
 		m_swapChain = 0;
 	}
 
-	SAFE_DELETE(mainCamera);
+	if(gameUtil.GetMainCamera())
+		delete gameUtil.GetMainCamera();
+	
 	SAFE_RELEASE(m_blendState);
 	return;
 }

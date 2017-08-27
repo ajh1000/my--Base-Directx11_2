@@ -4,12 +4,13 @@
 #include <vector>
 using namespace std;
 
-#include "gameCamera.h"
 #include "gameObject.h"
-#include "gameCamera.h"
 #include "Model.h"
 #include "MyPathfinder.h"
 #include "GameUIScene.h"
+#include "MyPhysicsWorld.h"
+
+#include "gameCamera.h"
 
 class d3dutil
 {
@@ -48,6 +49,9 @@ public:
 	
 
 public:
+	bool m_isPaused = false;
+
+	//마우스 좌표는 메시지 루프 최상단에서 getcursorpos를 통해 업데이트된다.
 	int m_mouseX=0, m_mouseY =0;
 	bool m_windowActive = true;
 
@@ -58,6 +62,7 @@ public:
 	map<string, Model*> m_mapTag; //This is just pointing m_vecEnemys, m_vecGameObjects. so no need to clear contents.
 
 	GameUIScene* m_gameUIScene=nullptr;
+	MyPhysicsWorld* m_physicsWorld = nullptr;
 private:
 	ID3D11Device* m_device;
 	ID3D11DeviceContext* m_deviceContext;
@@ -68,8 +73,8 @@ private:
 
 	HWND m_hWnd;
 
+	//GameCamera* mainCamera = nullptr;
 	GameCamera* mainCamera = nullptr;
-
 
 };
 

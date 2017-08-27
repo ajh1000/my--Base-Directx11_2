@@ -8,7 +8,7 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 	CustomWindow window(1600,900,appInstance);
 	
 	D3DClass direct3d;
-	direct3d.Initialize(window.GetHandle());
+	direct3d.Initialize(window.GetHandle(),true);
 
 	MSG msg = {};
 
@@ -16,6 +16,8 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 
 	while (1)
 	{
+		keyMgr.update();
+
 		if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
@@ -26,7 +28,6 @@ int CALLBACK WinMain(HINSTANCE appInstance, HINSTANCE prevInstance, LPSTR cmdLin
 				break;
 			}
 		}
-		keyMgr.update();
 		direct3d.update();
 		direct3d.render();
 

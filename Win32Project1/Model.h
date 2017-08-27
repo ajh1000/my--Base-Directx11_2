@@ -16,10 +16,10 @@ private:
 	
 public:
 	Model();
-	~Model();
+	virtual ~Model();
 
 	void init(char* dir, char* FileName);
-	void update();
+	virtual void update();
 	virtual void render() override;
 
 	//void loadAnimation(string fulldir);
@@ -43,7 +43,7 @@ public:
 	vector<MeshInfo> m_vecMesh;
 	vector<vertex_ptn_skinned_xm> m_vertex_skinned_xm;
 	vector<UINT> m_indices;
-	BoundingBox m_box;
+	
 	string m_AnimName;
 
 private:

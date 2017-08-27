@@ -36,7 +36,7 @@ void cube_normal::init()
 	vertices[2].uv = D3DXVECTOR2(1.0f, 1.0f);
 	vertices[2].normal = D3DXVECTOR3(0.0f, 0.0f, -1.0f);
 
-	super::Init_CreateVertexBuffer(vertices,sizeof(vertex_ptn), 3, D3D11_USAGE_DEFAULT,
+	gameObject::Init_CreateVertexBuffer(vertices,sizeof(vertex_ptn), 3, D3D11_USAGE_DEFAULT,
 		D3D11_BIND_VERTEX_BUFFER, 0);
 
 
@@ -56,6 +56,7 @@ void cube_normal::update()
 void cube_normal::render()
 {
 	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
+	
 
 	texture.render();
 

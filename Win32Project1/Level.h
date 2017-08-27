@@ -31,7 +31,6 @@ private:
 
 	MyPathfinder myPath;
 	vector<D3DXVECTOR3> m_agentOldPos;
-
-	bool Dead = false;
+	
 };
 

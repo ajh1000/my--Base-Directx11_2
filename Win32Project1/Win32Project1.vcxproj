@@ -177,7 +177,11 @@
     <ClInclude Include="CustomWindow.h" />
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="d3dutil.h" />
+    <ClInclude Include="gameCamera.h" />
+    <ClInclude Include="gameCameraThirdPerson.h" />
+    <ClInclude Include="gameMap.h" />
     <ClInclude Include="gameObject.h" />
+    <ClInclude Include="gamePlayer.h" />
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="GameUIObject.h" />
     <ClInclude Include="GameUIScene.h" />
@@ -195,7 +199,7 @@
     <ClInclude Include="textureclass.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Types.h" />
-    <ClInclude Include="gameCamera.h" />
+    <ClInclude Include="UIhealthBar.h" />
     <ClInclude Include="UImenu.h" />
   </ItemGroup>
   <ItemGroup>
@@ -206,7 +210,11 @@
     <ClCompile Include="CustomWindow.cpp" />
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="d3dutil.cpp" />
+    <ClCompile Include="gameCamera.cpp" />
+    <ClCompile Include="gameCameraThirdPerson.cpp" />
+    <ClCompile Include="gameMap.cpp" />
     <ClCompile Include="gameObject.cpp" />
+    <ClCompile Include="gamePlayer.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="GameUIObject.cpp" />
     <ClCompile Include="GameUIScene.cpp" />
@@ -226,7 +234,7 @@
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="textureclass.cpp" />
     <ClCompile Include="Transform.cpp" />
-    <ClCompile Include="gameCamera.cpp" />
+    <ClCompile Include="UIhealthBar.cpp" />
     <ClCompile Include="UImenu.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -292,11 +300,6 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
     </FxCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="HTMLPage.htm">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

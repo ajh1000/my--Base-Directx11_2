@@ -8,9 +8,6 @@ MyTransform::MyTransform()
 	m_worldRot = D3DXVECTOR3(0, 0, 0);
 	m_worldScale = D3DXVECTOR3(1, 1, 1);
 
-	m_localPos= D3DXVECTOR3(0, 0, 0);
-	m_localRot= D3DXVECTOR3(0, 0, 0);
-	m_localScale = D3DXVECTOR3(1, 1, 1);
 
 	D3DXMatrixIdentity(&m_matWorldPos);
 	D3DXMatrixIdentity(&m_matWorldRot);
@@ -20,7 +17,6 @@ MyTransform::MyTransform()
 	D3DXMatrixIdentity(&m_wvp.world);
 	D3DXMatrixIdentity(&m_wvp.view);
 	D3DXMatrixIdentity(&m_wvp.proj);
-	D3DXMatrixIdentity(&m_matLocalTransform);
 
 	D3DXQuaternionIdentity(&m_quaternion);
 }
@@ -44,24 +40,24 @@ void MyTransform::buildMatrixWVP()
 	//D3DXMatrixRotationYawPitchRoll(&m_matWorldRot, m_worldRot.y * (D3DX_PI / 180.f) ,
 	//										m_worldRot.x * (D3DX_PI / 180.f),
 	//										m_worldRot.z * (D3DX_PI / 180.f));
-	
+
 	D3DXMatrixScaling(&m_matWorldScale, m_worldScale.x, m_worldScale.y, m_worldScale.z);
 
 
 	if (m_IsRotMat == true)
 	{
-		m_wvp.world = m_matLocalTransform *(m_matWorldScale*rotMat*m_matWorldPos);
+		m_wvp.world =(m_matWorldScale*rotMat*m_matWorldPos);
 	}
 	else
 	{
-		m_wvp.world = m_matLocalTransform *(m_matWorldScale*m_matWorldRot*m_matWorldPos);
+		m_wvp.world =(m_matWorldScale*m_matWorldRot*m_matWorldPos);
 	}
 	if (m_isScreenSpace)
 	{
 		D3DXMATRIX defaultViewMat;
-		D3DXVECTOR3 eye=D3DXVECTOR3(0,0,-1);
-		D3DXVECTOR3 lookat(0,0,0);
-		D3DXVECTOR3 up(0,1,0);
+		D3DXVECTOR3 eye = D3DXVECTOR3(0, 0, -1);
+		D3DXVECTOR3 lookat(0, 0, 0);
+		D3DXVECTOR3 up(0, 1, 0);
 
 		D3DXMatrixLookAtLH(&defaultViewMat, &eye, &lookat, &up);
 		m_wvp.view = defaultViewMat;
@@ -73,7 +69,7 @@ void MyTransform::buildMatrixWVP()
 		m_wvp.view = gameUtil.GetMainCamera()->GetViewMat();
 		m_wvp.proj = gameUtil.GetMainCamera()->GetProjMat();
 	}
-	
+
 }
 
 void MyTransform::buildMatrixWorld()
@@ -83,12 +79,12 @@ void MyTransform::buildMatrixWorld()
 	D3DXMatrixRotationQuaternion(&m_matWorldRot, &m_quaternion);
 	/*
 	D3DXMatrixRotationYawPitchRoll(&m_matWorldRot, m_worldRot.y * (D3DX_PI / 180.f),
-		m_worldRot.x * (D3DX_PI / 180.f),
-		m_worldRot.z * (D3DX_PI / 180.f));
-		*/
+	m_worldRot.x * (D3DX_PI / 180.f),
+	m_worldRot.z * (D3DX_PI / 180.f));
+	*/
 	D3DXMatrixScaling(&m_matWorldScale, m_worldScale.x, m_worldScale.y, m_worldScale.z);
 
-	m_wvp.world = m_matLocalTransform*(m_matWorldScale*m_matWorldRot*m_matWorldPos);
+	m_wvp.world = m_matWorldScale*m_matWorldRot*m_matWorldPos;
 }
 
 D3DXMATRIX MyTransform::getMatrixWorld()
@@ -121,9 +117,9 @@ void MyTransform::translate(float x, float y, float z)
 void MyTransform::rotate(float x, float y, float z)
 {
 
-	m_worldRot.x += x ;
-	m_worldRot.y += y ;
-	m_worldRot.z += z ; 
+	m_worldRot.x += x;
+	m_worldRot.y += y;
+	m_worldRot.z += z;
 
 	if (m_worldRot.x >= 360.0f)
 	{
@@ -152,7 +148,7 @@ void MyTransform::setRot(float x, float y, float z)
 	m_worldRot.z = z;
 
 	D3DXQuaternionRotationYawPitchRoll(&m_quaternion,
-		m_worldRot.y * (D3DX_PI/180.f),
+		m_worldRot.y * (D3DX_PI / 180.f),
 		m_worldRot.x* (D3DX_PI / 180.f),
 		m_worldRot.z* (D3DX_PI / 180.f));
 }
@@ -160,7 +156,7 @@ void MyTransform::setRot(float x, float y, float z)
 void MyTransform::setRot(D3DXQUATERNION quat)
 {
 	m_quaternion = quat;
-		
+
 }
 
 void MyTransform::setScale(float x, float y, float z)

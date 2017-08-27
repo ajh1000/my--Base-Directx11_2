@@ -52,7 +52,7 @@ static type& GetInstance() \
 #define SAFE_RELEASE(t) if(t) { t->release(); t=0;}
 #define SAFE_DELETE(t) if(t) { delete t; t=0;}
 #define SAFE_ARR_DELETE(t) if(t) {delete[] t; t=0; }
-#define IF_ERROR_MSGBOX(isTrue,text) {\
+#define ERROR_MSGBOX(isTrue,text) {\
 	if (isTrue)\
 	{\
 	MessageBox(0, text, "error", 0);\
@@ -69,7 +69,6 @@ static type& GetInstance() \
 #include <D3DX10math.h>
 
 #include <DirectXMath.h>
-#include <DirectXCollision.h>
 using namespace DirectX;
 
 #include "d3dutil.h"

@@ -101,6 +101,7 @@ void MyPathfinder::init(string dir)
 	crowd = dtAllocCrowd();
 	crowd->init(1000, 10, navMesh);
 
+	
 }
 
 void MyPathfinder::addAgent(float x, float y, float z)
@@ -124,6 +125,7 @@ void MyPathfinder::addAgent(float x, float y, float z)
 
 void MyPathfinder::update()
 {
+	/*
 	Model* player = (Model*)gameUtil.m_vecGameObjects[0];
 
 	if (gameUtil.m_vecEnemys.size() > 0)
@@ -132,22 +134,22 @@ void MyPathfinder::update()
 		dtCrowdAgentDebugInfo info;
 		crowd->update(gameTimer.getDeltaTime(), &info);
 		
-		/*
-			player->transform.setPos(crowd.getAgent(0)->npos[0],
-				crowd.getAgent(0)->npos[1],
-				crowd.getAgent(0)->npos[2]);
-		*/
+		
+		//	player->transform.setPos(crowd.getAgent(0)->npos[0],
+		//		crowd.getAgent(0)->npos[1],
+		//		crowd.getAgent(0)->npos[2]);
+		
 	}
 
 	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
 	{
-		D3DXVECTOR3 agentPos = {
+		XMFLOAT3 agentPos = {
 			crowd->getAgent(i)->npos[0],
 			crowd->getAgent(i)->npos[1],
 			crowd->getAgent(i)->npos[2]
 		};
 
-		D3DXVECTOR3 playerPos = player->transform.getPos();
+		XMFLOAT3 playerPos = player->transform.getPos();
 		float dist = D3DXVec3Length(&(playerPos - agentPos));
 		if (dist> 4)
 		{
@@ -157,5 +159,5 @@ void MyPathfinder::update()
 		{
 
 		}
-	}
+	}*/
 }

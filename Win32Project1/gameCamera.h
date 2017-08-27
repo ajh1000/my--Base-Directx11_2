@@ -29,6 +29,7 @@ public:
 
 	/// 생성자
 	GameCamera();
+	virtual ~GameCamera();
 	
 	/// 카메라 행렬을 얻어낸다.
 	D3DXMATRIXA16*	GetViewMatrix() { return &m_matView; }
@@ -36,7 +37,7 @@ public:
 	/// 빌보드 행렬을 얻어낸다.
 	D3DXMATRIXA16*	GetBillMatrix() { return &m_matBill; }
 
-	void update();
+	virtual void update();
 	void setProjMatrix(D3DXMATRIX& mat);
 	void setOrthoMatrix(D3DXMATRIX& mat);
 

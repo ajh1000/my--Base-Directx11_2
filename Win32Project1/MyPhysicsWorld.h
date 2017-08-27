@@ -1,6 +1,7 @@
 #pragma once
 
 #include <btBulletDynamicsCommon.h>
+#include <string>
 
 class MyPhysicsWorld
 {
@@ -10,6 +11,18 @@ public:
 
 	void init();
 	void update();
+
+	//create and add rigidbody to dynamic world.
+	void CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
+		vector<vertex_ptn_skinned_xm>& vertices,
+		vector<UINT>& indices, string tag);
+	void CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius,float height, string tag);
+
+	vector<btTriangleMesh*> m_vecTriangleMesh;
+	vector<btCollisionShape*> m_vecCollisionShape;
+	vector<btRigidBody*> m_vecRigidbody;
+
+	map<string, btRigidBody*> m_mapRigidbody;
 
 public:
 	//must use after MyPhysicsWorld::init();
@@ -21,11 +34,5 @@ private:
 	btDefaultCollisionConfiguration* m_collisionConfiguration = nullptr;
 	btSequentialImpulseConstraintSolver* m_solver = nullptr;
 	
-	btTriangleMesh* m_TriangleMesh_map = 0;
-	btCollisionShape* m_collisionShape_map = nullptr;
-	btRigidBody* m_rigidbody_map = nullptr;
-
-	btCollisionShape* m_collisionshape_player = 0;
-	btRigidBody* m_rigidbody_player = 0;
 };
 

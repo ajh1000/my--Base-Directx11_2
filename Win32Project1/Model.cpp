@@ -382,7 +382,7 @@ void Model::init(char * dir, char * FileName)
 		// If the import failed, report it
 		if (!_aiScene)
 		{
-			IF_ERROR_MSGBOX(true, "model import error");
+			ERROR_MSGBOX(true, "model import error");
 		}
 
 		//
@@ -970,12 +970,16 @@ void Model::render()
 	matrix_WorldViewProj wvp = transform.getWVP();
 
 	D3DXMatrixTranspose(&wvp.world, &wvp.world);
-	D3DXMatrixTranspose(&wvp.proj, &wvp.proj);
 	D3DXMatrixTranspose(&wvp.view, &wvp.view);
+	D3DXMatrixTranspose(&wvp.proj, &wvp.proj);
 
+	
 	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp);
-	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties, 0);
+	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
 	SetPSParameters<AlphaBlendBuffer>(m_AlphaBlendBuffer, m_alphaProperty,1);
+
+	
+
 
 
 

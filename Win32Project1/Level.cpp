@@ -2,6 +2,8 @@
 #include "Level.h"
 #include "MyPathfinder.h"
 #include "MyPhysicsWorld.h"
+#include "gamePlayer.h"
+#include "gameMap.h"
 
 Level::Level()
 {
@@ -25,28 +27,41 @@ Level::~Level()
 
 void Level::init()
 {
+	gameUtil.m_isPaused = true;
+
 	/*
 		UI
 	*/
 	m_uiScene.init();
 	gameUtil.m_gameUIScene = &m_uiScene;
 
+	/*
+		PathFinder
+	*/
+	myPath.init("all_tiles_navmesh.bin");
+	gameUtil.myPath = &myPath;
+
+	/*
+		PhysicsWorld
+	*/
+	phyWorld.init();
+	gameUtil.m_physicsWorld = &phyWorld;
 
 
 	/*
 		PLAYER
 	*/
-	Model* player = new Model();
-	player->init("./DATA/ArmyPilot/", "ArmyPilot.x");
-	player->transform.setPos(0, 50, 0);
+	gamePlayer* player = new gamePlayer();
+	player->transform.setPos(0, 20, 0);
 	player->transform.setScale(0.02, 0.02, 0.02);
-	player->transform.rotate(0, 180, 0);
+	player->transform.rotate(0, 0, 0);
+	player->init("./DATA/ArmyPilot/", "ArmyPilot.x");
 	player->m_AnimName = "Idle";
 	player->m_lightProperties.lightDirection = D3DXVECTOR3(0, -1, 1);
 	gameUtil.m_vecGameObjects.push_back(player);
 	gameUtil.m_mapTag["player"] = player;
 
-	vector<XMFLOAT3> arr;
+	/*vector<XMFLOAT3> arr;
 	arr.resize(player->m_vertex_skinned_xm.size());
 	for (int i = 0; i < arr.size(); ++i)
 	{
@@ -63,61 +78,75 @@ void Level::init()
 	D3DXMATRIX d3dxmat = player->transform.getWVP().world;
 	memcpy(&mat._11, &d3dxmat._11, sizeof(float) * 16);
 	player->m_box.Transform(player->m_box, XMLoadFloat4x4(&mat));
-
-	//map
-	Model* pmap = new Model();
+*/
+//map
+	gameMap* pmap = new gameMap();
 	pmap->init("./DATA/map/", "map.obj");
 	pmap->transform.setPos(0, 0, 0);
 	pmap->transform.setRot(0, 0, 0);
 	gameUtil.m_vecGameObjects.push_back(pmap);
 	gameUtil.m_mapTag["map"] = pmap;
 
-	//map AABB
-	Model* pmapAABB = new Model();
-	pmapAABB->init("./DATA/map/", "aabb.obj");
-	pmapAABB->transform.setPos(0, 0, 0);
-	pmapAABB->transform.setRot(0, 0, 0);
-	gameUtil.m_vecGameObjects.push_back(pmapAABB);
+	////map AABB
+	//Model* pmapAABB = new Model();
+	//pmapAABB->init("./DATA/map/", "aabb.obj");
+	//pmapAABB->transform.setPos(0, 0, 0);
+	//pmapAABB->transform.setRot(0, 0, 0);
+	//gameUtil.m_vecGameObjects.push_back(pmapAABB);
 
 
-	arr.clear();
-	arr.resize(pmapAABB->m_vertex_skinned_xm.size());
-	for (int i = 0; i < arr.size(); ++i)
-	{
-		arr[i] = pmapAABB->m_vertex_skinned_xm[i].pos;
-	}
+	//arr.clear();
+	//arr.resize(pmapAABB->m_vertex_skinned_xm.size());
+	//for (int i = 0; i < arr.size(); ++i)
+	//{
+	//	arr[i] = pmapAABB->m_vertex_skinned_xm[i].pos;
+	//}
 
-	BoundingBox::CreateFromPoints(pmapAABB->m_box,
-		arr.size(),
-		&arr[0],
-		sizeof(XMFLOAT3));
+	//BoundingBox::CreateFromPoints(pmapAABB->m_box,
+	//	arr.size(),
+	//	&arr[0],
+	//	sizeof(XMFLOAT3));
 
-	ZeroMemory(&mat._11, 4 * 16);
+	//ZeroMemory(&mat._11, 4 * 16);
 
-	pmapAABB->transform.buildMatrixWVP();
-	d3dxmat = pmapAABB->transform.getWVP().world;
-	memcpy(&mat._11, &d3dxmat._11, sizeof(float) * 16);
+	//pmapAABB->transform.buildMatrixWVP();
+	//d3dxmat = pmapAABB->transform.getWVP().world;
+	//memcpy(&mat._11, &d3dxmat._11, sizeof(float) * 16);
 
-	pmapAABB->m_box.Transform(pmapAABB->m_box, XMLoadFloat4x4(&mat));
+	//pmapAABB->m_box.Transform(pmapAABB->m_box, XMLoadFloat4x4(&mat));
 
-	std::vector<gameObject*>::iterator it;
-	for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
-	{
-		//(*it)->init();
-	}
+	//std::vector<gameObject*>::iterator it;
+	//for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
+	//{
+	//	//(*it)->init();
+	//}
 
 
-	phyWorld.init();
-
-	myPath.init("all_tiles_navmesh.bin");
-	gameUtil.myPath = &myPath;
 }
 
 void Level::update()
 {
-	Model* player = (Model*)gameUtil.m_vecGameObjects[0];
+	if (keyMgr.IsPressed(VK_ESCAPE))
+	{
+		if (gameUtil.m_isPaused == false)
+			gameUtil.m_isPaused = true;
+		else
+			gameUtil.m_isPaused = false;
+	}
 
-	myPath.update();
+	if (gameUtil.m_isPaused == true)
+	{
+		static HCURSOR hcursor = LoadCursor(0, IDC_ARROW);
+
+		SetCursor(hcursor);
+	}
+	else
+	{
+		SetCursor(NULL);
+	}
+
+	//Model* player = (Model*)gameUtil.m_vecGameObjects[0];
+
 
 	//if (keyMgr.IsPressed(VK_LBUTTON)) // CREATE ENEMY
 	//{
@@ -252,10 +281,9 @@ void Level::update()
 	}*/
 
 
-	std::vector<gameObject*>::iterator it;
-	for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
+	for (int i = 0; i < gameUtil.m_vecGameObjects.size(); ++i)
 	{
-		(*it)->update();
+		gameUtil.m_vecGameObjects[i]->update();
 	}
 
 	lateUpdate();
@@ -263,9 +291,8 @@ void Level::update()
 
 void Level::lateUpdate()
 {
-	// must be first
 	gameUtil.GetMainCamera()->update();
-
+	myPath.update();
 	phyWorld.update();
 	m_uiScene.update();
 }
@@ -273,23 +300,11 @@ void Level::lateUpdate()
 void Level::render()
 {
 
-	std::vector<gameObject*>::iterator it;
-	for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
+	for (int i = 0; i < gameUtil.m_vecGameObjects.size(); ++i)
 	{
-		if (it == gameUtil.m_vecGameObjects.begin())
-		{
-			if (Dead == true)
-			{
-				continue;
-			}
-		}
-		(*it)->render();
+		gameUtil.m_vecGameObjects[i]->render();
 	}
-	/*
-	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
-	{
-		gameUtil.m_vecEnemys[i]->render();
-	}*/
+
 
 	m_uiScene.render();
 }

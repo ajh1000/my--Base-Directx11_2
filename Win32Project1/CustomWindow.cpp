@@ -82,11 +82,6 @@ LRESULT CustomWindow::CustomMsgProc(HWND hWnd, UINT message, WPARAM wParam, LPAR
 	case WM_PAINT:
 		break;
 
-	case WM_MOUSEMOVE:
-		ScreenToClient(m_hWnd, &pt);
-		gameUtil.m_mouseX = pt.x;
-		gameUtil.m_mouseY = pt.y;
-		break;
 	case WM_ACTIVATE:
 		if (LOWORD(wParam) == WA_ACTIVE)
 			gameUtil.m_windowActive = true;

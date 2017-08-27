@@ -15,6 +15,13 @@ void KeyManager::update()
 {
 	if (gameUtil.m_windowActive == true)
 	{
+		POINT pt;
+		GetCursorPos(&pt);
+		ScreenToClient(gameUtil.GetHWND(), &pt);
+		gameUtil.m_mouseX = pt.x;
+		gameUtil.m_mouseY = pt.y;
+
+
 		for (int i = 1; i <= 254; ++i)
 		{
 			if (GetAsyncKeyState(i) & 0x8000)

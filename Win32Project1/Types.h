@@ -118,17 +118,17 @@ struct AlphaBlendBuffer
 struct matrix_WorldViewProj
 {
 	D3DXMATRIX world;
-	D3DXMATRIX view;
-	D3DXMATRIX proj;
+	D3DXMATRIX  view;
+	D3DXMATRIX  proj;
 
 };
 
 struct matrix_WorldViewProjBones
 {
-	D3DXMATRIX world;
-	D3DXMATRIX view;
-	D3DXMATRIX proj;
-	D3DXMATRIX transform[96];
+	XMFLOAT4X4 world;
+	XMFLOAT4X4 view;
+	XMFLOAT4X4 proj;
+	XMFLOAT4X4 transform[96];
 };
 
 struct LightBuffer

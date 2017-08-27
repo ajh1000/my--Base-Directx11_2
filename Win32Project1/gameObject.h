@@ -27,7 +27,7 @@ private:
 	void settingDeafaultLayouts();
 
 protected:
-	enum EPolygonLayout { LAYOUT_PC = 0, LAYOUT_PT, LAYOUT_PTN,LAYOUT_PTN_SKINNED };
+	enum EPolygonLayout { LAYOUT_PC = 0, LAYOUT_PT, LAYOUT_PTN, LAYOUT_PTN_SKINNED };
 
 protected: //MUST USE
 	void Init_compileShader(char* vsDir, char* psDir);
@@ -92,7 +92,7 @@ inline void gameObject::SetVSParameters(ID3D11Buffer* buffer, Type& data, UINT s
 
 
 	gameUtil.getDeviceContext()->Unmap(buffer, 0);
-	
+
 	gameUtil.getDeviceContext()->VSSetConstantBuffers(slotNumber, 1, &buffer);
 }
 
