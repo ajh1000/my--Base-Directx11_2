@@ -44,6 +44,7 @@ public:
 	vector<vertex_ptn_skinned_xm> m_vertex_skinned_xm;
 	vector<UINT> m_indices;
 	
+	void setAnimation(string name);
 	string m_AnimName;
 
 private:

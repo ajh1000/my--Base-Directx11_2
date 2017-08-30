@@ -4,6 +4,15 @@
 KeyManager::KeyManager()
 {
 	ZeroMemory(m_key, sizeof(struct_key) * 255);
+
+	POINT pt;
+	RECT rc;
+	GetClientRect(gameUtil.GetHWND(), &rc);
+	pt.x = (rc.right - rc.left) / 2;
+	pt.y = (rc.bottom - rc.top) / 2;
+
+	gameUtil.m_centerX = pt.x;
+	gameUtil.m_centerY = pt.y;
 }
 
 KeyManager::~KeyManager()
@@ -20,6 +29,8 @@ void KeyManager::update()
 		ScreenToClient(gameUtil.GetHWND(), &pt);
 		gameUtil.m_mouseX = pt.x;
 		gameUtil.m_mouseY = pt.y;
+
+		
 
 
 		for (int i = 1; i <= 254; ++i)

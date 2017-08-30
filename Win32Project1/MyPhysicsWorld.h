@@ -16,7 +16,7 @@ public:
 	void CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
 		vector<vertex_ptn_skinned_xm>& vertices,
 		vector<UINT>& indices, string tag);
-	void CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius,float height, string tag);
+	void CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius,float height, float mass, string tag);
 
 	vector<btTriangleMesh*> m_vecTriangleMesh;
 	vector<btCollisionShape*> m_vecCollisionShape;

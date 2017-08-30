@@ -937,15 +937,25 @@ void Model::cache()
 
 }
 
+
+void Model::setAnimation(string name)
+{
+	//같지 않다면
+	if (m_AnimName.compare(name.c_str()))
+	{
+		//새로운 애니메이션으로 바꿨으니 애니메이션 프레임 초기화.
+		m_frame = 0;
+	}
+
+	m_AnimName = name;
+}
+
 void Model::update()
 {
-	
-	
-
 	if (m_HasAnimations)
 	{
 		//animate
-		m_frame += gameTimer.getDeltaTime() * 30;
+		m_frame += gameTimer.getDeltaTime() * 60;
 
 		if (m_frame > m_AnimationClips[m_mapAnimClipNameIdx[m_AnimName]].TotalFrames)
 			m_frame = 0;
@@ -974,7 +984,7 @@ void Model::render()
 	D3DXMatrixTranspose(&wvp.proj, &wvp.proj);
 
 	
-	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp);
+	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp,0);
 	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
 	SetPSParameters<AlphaBlendBuffer>(m_AlphaBlendBuffer, m_alphaProperty,1);
 
@@ -1065,6 +1075,7 @@ void Model::render()
 
 
 }
+
 
 
 void Model::settingTextures(const aiScene* pScene, string dir)

@@ -14,6 +14,7 @@ class GameCamera
 	D3DXVECTOR3		m_vEye;			/// 카메라의 현재 위치
 	D3DXVECTOR3		m_vLookat;		/// 카메라의 시선 위치
 	D3DXVECTOR3		m_vUp;			/// 카메라의 상방벡터
+	D3DXVECTOR3		m_vRight;
 
 	D3DXVECTOR3		m_vView;		/// 카메라가 향하는 단위방향벡터
 	D3DXVECTOR3		m_vCross;		/// 카마레의 측면벡터 cross( view, up )
@@ -38,12 +39,13 @@ public:
 	D3DXMATRIXA16*	GetBillMatrix() { return &m_matBill; }
 
 	virtual void update();
+	virtual void lateUpdate();
 	void setProjMatrix(D3DXMATRIX& mat);
 	void setOrthoMatrix(D3DXMATRIX& mat);
 
 	D3DXMATRIX GetProjMat();
 	D3DXMATRIX GetOrthoMat();
-	D3DXMATRIX GetViewMat();
+	virtual D3DXMATRIX GetViewMat();
 
 
 
@@ -57,10 +59,13 @@ public:
 	D3DXMATRIXA16*	SetView( D3DXVECTOR3* pvEye,D3DXVECTOR3* pvLookat,D3DXVECTOR3* pvUp);
 
 	/// 카메라의 위치값을 설정한다.
-	void			SetEye( D3DXVECTOR3* pv ) { m_vEye = *pv; }
+	void			SetEye( D3DXVECTOR3 pv ) { m_vEye = pv; }
 	
 	/// 카메라의 위치값을 얻어낸다.
-	D3DXVECTOR3*	GetEye() { return &m_vEye; }
+	D3DXVECTOR3	GetEye() { return m_vEye; }
+	
+	void setRight(D3DXVECTOR3& v) { m_vRight = v; }
+	D3DXVECTOR3 GetRight() { return m_vRight; }
 	
 	/// 카메라의 시선값을 설정한다.
 	void			SetLookat(D3DXVECTOR3* pv);

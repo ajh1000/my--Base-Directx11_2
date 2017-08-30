@@ -11,12 +11,16 @@ public:
 
 	virtual void init(char* dir,char* FileName);
 	virtual void update();
+	virtual void lateUpdate();
 	virtual void render();
 
-	void updatePhysicsTransform();
-
+	void processingInput();
 public:
 	btRigidBody* m_rigidbody = nullptr;
 
+private:
+	D3DXQUATERNION m_desiredQuat;
+	D3DXQUATERNION m_OriginalQuat;
+	float m_slerpFactor;
 };
 

@@ -13,6 +13,7 @@ GameCamera::GameCamera()
 	D3DXMatrixIdentity(&m_matView);
 	D3DXMatrixIdentity(&m_matBill);
 	SetView(&eye, &lookat, &up);
+	m_vRight = D3DXVECTOR3(1, 0, 0);
 }
 
 GameCamera::~GameCamera()
@@ -86,9 +87,10 @@ void GameCamera::pick(int x, int y)
 	}*/
 }
 
+//FIRST PERSON CAMERA ALGORITHM.
 void GameCamera::update()
 {
-
+	
 	if (keyMgr.IsPressing(VK_W))
 	{
 		MoveLocalZ(gameTimer.getDeltaTime() * 60);
@@ -115,8 +117,6 @@ void GameCamera::update()
 
 	float sensitivity = 0.001f;
 
-	//POINT pt;
-	//GetCursorPos(&pt);
 	curX = gameUtil.m_mouseX;
 	curY = gameUtil.m_mouseY;
 
@@ -146,6 +146,10 @@ void GameCamera::update()
 
 
 
+}
+
+void GameCamera::lateUpdate()
+{
 }
 
 void GameCamera::setProjMatrix(D3DXMATRIX & mat)

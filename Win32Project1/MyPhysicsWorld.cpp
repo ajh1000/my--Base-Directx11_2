@@ -86,7 +86,7 @@ void MyPhysicsWorld::CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
 
 }
 
-void MyPhysicsWorld::CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius, float height, string tag)
+void MyPhysicsWorld::CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius, float height, float mass ,string tag)
 {
 	btCollisionShape* collisionShape = new btCapsuleShape(radius, height);
 
@@ -94,7 +94,6 @@ void MyPhysicsWorld::CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius, float
 		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(pos.x, pos.y, pos.z)));
 
 
-	float mass = 2.f;
 
 	btVector3 fallInertia(0, 0, 0);
 	collisionShape->calculateLocalInertia(mass, fallInertia);

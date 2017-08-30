@@ -37,21 +37,11 @@ void MyTransform::buildMatrixWVP()
 
 	D3DXMatrixRotationQuaternion(&m_matWorldRot, &m_quaternion);
 
-	//D3DXMatrixRotationYawPitchRoll(&m_matWorldRot, m_worldRot.y * (D3DX_PI / 180.f) ,
-	//										m_worldRot.x * (D3DX_PI / 180.f),
-	//										m_worldRot.z * (D3DX_PI / 180.f));
-
 	D3DXMatrixScaling(&m_matWorldScale, m_worldScale.x, m_worldScale.y, m_worldScale.z);
 
 
-	if (m_IsRotMat == true)
-	{
-		m_wvp.world =(m_matWorldScale*rotMat*m_matWorldPos);
-	}
-	else
-	{
-		m_wvp.world =(m_matWorldScale*m_matWorldRot*m_matWorldPos);
-	}
+	m_wvp.world =(m_matWorldScale*m_matWorldRot*m_matWorldPos);
+	
 	if (m_isScreenSpace)
 	{
 		D3DXMATRIX defaultViewMat;
@@ -61,7 +51,6 @@ void MyTransform::buildMatrixWVP()
 
 		D3DXMatrixLookAtLH(&defaultViewMat, &eye, &lookat, &up);
 		m_wvp.view = defaultViewMat;
-		//m_wvp.view = identityMat();
 		m_wvp.proj = gameUtil.GetMainCamera()->GetOrthoMat();
 	}
 	else
@@ -77,11 +66,7 @@ void MyTransform::buildMatrixWorld()
 	D3DXMatrixTranslation(&m_matWorldPos, m_worldPos.x, m_worldPos.y, m_worldPos.z);
 
 	D3DXMatrixRotationQuaternion(&m_matWorldRot, &m_quaternion);
-	/*
-	D3DXMatrixRotationYawPitchRoll(&m_matWorldRot, m_worldRot.y * (D3DX_PI / 180.f),
-	m_worldRot.x * (D3DX_PI / 180.f),
-	m_worldRot.z * (D3DX_PI / 180.f));
-	*/
+	
 	D3DXMatrixScaling(&m_matWorldScale, m_worldScale.x, m_worldScale.y, m_worldScale.z);
 
 	m_wvp.world = m_matWorldScale*m_matWorldRot*m_matWorldPos;

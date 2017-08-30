@@ -171,6 +171,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="animationData.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="cube_normal.h" />
     <ClInclude Include="cube_tex.h" />
@@ -204,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animationData.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="cube_normal.cpp" />
     <ClCompile Include="cube_tex.cpp" />

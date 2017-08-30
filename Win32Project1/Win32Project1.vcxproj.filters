@@ -66,6 +66,9 @@
     <ClInclude Include="gameCameraThirdPerson.h">
       <Filter>camera</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -126,6 +129,9 @@
       <Filter>camera</Filter>
     </ClCompile>
     <ClCompile Include="gameCamera.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
       <Filter>camera</Filter>
     </ClCompile>
   </ItemGroup>

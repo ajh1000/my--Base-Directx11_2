@@ -10,22 +10,20 @@ public:
 public:
 	void setPos(D3DXVECTOR3 pos);
 	void setPos(float x, float y, float z);
-	void setRot(float x, float y, float z); //input as degree. not radian.
+	void setRot(float x, float y, float z); //input as euler degree. not radian.
 	void setRot(D3DXQUATERNION quat);
 	void setScale(float x, float y, float z);
 
 	D3DXVECTOR3 getPos();
 
 	void translate(float x, float y, float z);
-	void rotate(float x, float y, float z); //input as degree. not radian.
+	void rotate(float x, float y, float z); //input as euler degree. not radian.
 
 	matrix_WorldViewProj getWVP();
 	void buildMatrixWVP();
 	void buildMatrixWorld();
 	D3DXMATRIX getMatrixWorld();
 public:
-	bool m_IsRotMat = false;
-	D3DXMATRIX rotMat;
 	bool m_isScreenSpace = false;
 
 private:

@@ -53,6 +53,7 @@ public:
 
 	//마우스 좌표는 메시지 루프 최상단에서 getcursorpos를 통해 업데이트된다.
 	int m_mouseX=0, m_mouseY =0;
+	int m_centerX = 0, m_centerY = 0;
 	bool m_windowActive = true;
 
 	MyPathfinder* myPath = 0;

@@ -4,6 +4,7 @@
 #include "MyPhysicsWorld.h"
 #include "gamePlayer.h"
 #include "gameMap.h"
+#include "gameCameraThirdPerson.h"
 
 Level::Level()
 {
@@ -27,7 +28,7 @@ Level::~Level()
 
 void Level::init()
 {
-	gameUtil.m_isPaused = true;
+	gameUtil.m_isPaused = false;
 
 	/*
 		UI
@@ -60,6 +61,8 @@ void Level::init()
 	player->m_lightProperties.lightDirection = D3DXVECTOR3(0, -1, 1);
 	gameUtil.m_vecGameObjects.push_back(player);
 	gameUtil.m_mapTag["player"] = player;
+
+	((gameCameraThirdPerson*)gameUtil.GetMainCamera())->setTargetPos(player);
 
 	/*vector<XMFLOAT3> arr;
 	arr.resize(player->m_vertex_skinned_xm.size());
@@ -126,6 +129,10 @@ void Level::init()
 
 void Level::update()
 {
+	//camera->update() : camera key processing.
+	if(gameUtil.m_isPaused==false)
+		gameUtil.GetMainCamera()->update();
+
 	if (keyMgr.IsPressed(VK_ESCAPE))
 	{
 		if (gameUtil.m_isPaused == false)
@@ -139,9 +146,19 @@ void Level::update()
 		static HCURSOR hcursor = LoadCursor(0, IDC_ARROW);
 
 		SetCursor(hcursor);
+
+
 	}
 	else
 	{
+		POINT pt;
+		RECT rc;
+		GetClientRect(gameUtil.GetHWND(), &rc);
+		pt.x = (rc.right - rc.left) / 2;
+		pt.y = (rc.bottom - rc.top) / 2;
+		ClientToScreen(gameUtil.GetHWND(), &pt);
+		SetCursorPos(pt.x, pt.y);
+
 		SetCursor(NULL);
 	}
 
@@ -291,10 +308,15 @@ void Level::update()
 
 void Level::lateUpdate()
 {
-	gameUtil.GetMainCamera()->update();
-	myPath.update();
-	phyWorld.update();
-	m_uiScene.update();
+	if (gameUtil.m_isPaused == false)
+	{
+		gameUtil.GetMainCamera()->lateUpdate();
+		((gamePlayer*)gameUtil.m_mapTag["player"])->lateUpdate();
+		myPath.update();
+		phyWorld.update();
+	}
+
+	//m_uiScene.update();
 }
 
 void Level::render()
@@ -306,6 +328,6 @@ void Level::render()
 	}
 
 
-	m_uiScene.render();
+	//m_uiScene.render();
 }
 
