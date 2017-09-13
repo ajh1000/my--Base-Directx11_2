@@ -90,15 +90,15 @@ void GameUIObject::setEnable(bool enable)
 
 }
 
-void GameUIObject::setPos(int x, int y, int width, int height)
+void GameUIObject::setPos(int x, int y)
 {
 	RECT rect;
 	GetClientRect(gameUtil.GetHWND(), &rect);
 
-	m_left = (x - rect.right / 2) - width/2;		//xpos
-	m_top = (rect.bottom / 2 - y)+height/2;		//ypos
-	m_width = m_left + width;		//width
-	m_height = m_top - height;       //height 
+	m_left = (x - rect.right / 2) - m_htmlTexture.m_rect.right /2;		//xpos
+	m_top = (rect.bottom / 2 - y)+ m_htmlTexture.m_rect.bottom /2;		//ypos
+	m_width= m_htmlTexture.m_rect.right+m_left;		//width
+	m_height = m_top- m_htmlTexture.m_rect.bottom;       //height 
 
 	vertex_pt vertices[4] = {};
 	vertices[0].pos = D3DXVECTOR3(m_left, m_top, 0.0f);

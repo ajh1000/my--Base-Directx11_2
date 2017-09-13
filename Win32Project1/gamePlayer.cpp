@@ -155,22 +155,25 @@ void gamePlayer::processingInput()
 	/*
 		ÀüÅõ
 	*/
-	if (keyMgr.IsPressed(VK_LBUTTON))
+	if (keyMgr.IsPressing(VK_RBUTTON))
 	{
+		gameUtil.m_gameUIScene->m_mapUI["crosshair"]->setEnable(true);
+		if (keyMgr.IsPressed(VK_LBUTTON))
+		{
+			D3DXVECTOR3 firePoint = transform.getPos();
+			D3DXVECTOR3 fireDir = forward;
+			firePoint.y += 3.5;
+			firePoint += fireDir*3;
+			
 
-		D3DXVECTOR3 firePoint = transform.getPos();
-		D3DXVECTOR3 fireDir = forward;
-		fireDir.y = 0;
-		fireDir *= 2;
-
-		firePoint += fireDir;
-		firePoint.y += 2.5;
-
-		fireDir = forward;
-		fireDir.y = 0;
-
-		BulletManager::GetInstance().instantiate(firePoint, fireDir);
+			BulletManager::GetInstance().instantiate(firePoint, fireDir);
+		}
 	}
+	if (keyMgr.IsUp(VK_RBUTTON))
+	{
+		gameUtil.m_gameUIScene->m_mapUI["crosshair"]->setEnable(false);
+	}
+	
 
 
 	/*

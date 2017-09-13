@@ -50,16 +50,17 @@ void GameUIScene::init()
 	healthBar->setEnable(true);
 	healthBar->m_htmlTexture.setAlwaysRender(true);
 	m_mapUI["healthBar"] = healthBar;
-	/*
+	
+	
 	UIcrosshair* crosshair = new UIcrosshair();
 	crosshair->init(centerX, centerY, 48, 48, 106,106, "http://35.194.254.46/ui/crosshair.html"); 
-	crosshair->setEnable(true);
+	crosshair->setEnable(false);
 	crosshair->m_htmlTexture.setAlwaysRender(true);
 	m_mapUI["crosshair"] = crosshair;
-	*/
+	
 	m_vecGameUIObjects.push_back(titleMenu);
 	m_vecGameUIObjects.push_back(healthBar);
-	//m_vecGameUIObjects.push_back(crosshair);
+	m_vecGameUIObjects.push_back(crosshair);
 
 
 }

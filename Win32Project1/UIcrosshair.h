@@ -1,4 +1,6 @@
 #pragma once
+#include "gamePlayer.h"
+#include "gameCameraThirdPerson.h"
 class UIcrosshair :
 	public GameUIObject
 {
@@ -10,5 +12,8 @@ public:
 		int textureWidth, int textureHeight, string URL);
 	virtual void update();
 	virtual void render();
+	D3DXVECTOR3 screenToWorld(D3DXVECTOR3 vIn);
+private:
+	
 };
 

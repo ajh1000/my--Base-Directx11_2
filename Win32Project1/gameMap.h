@@ -9,6 +9,6 @@ public:
 
 	void init(char* dir, char* FileName);
 	virtual void update();
-
+	string m_strType;
 };
 

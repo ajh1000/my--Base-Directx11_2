@@ -35,22 +35,7 @@ void UImenu::init(int xpos, int ypos, int vertexWidth, int vertexHeight,
 
 void UImenu::update()
 {
-	static float t = 0;
 	
-	t += gameTimer.getDeltaTime();
-	if (t >= 1)
-	{
-		m_htmlTexture.m_rect.left += 1;
-
-		RECT rect=m_htmlTexture.m_rect;
-		
-		rect.left += rect.right / 2;
-		rect.top += rect.bottom / 2;
-
-		t = 0;
-		setPos(rect.left, rect.top,
-			rect.right, rect.bottom);
-	}
 
 
 	if (keyMgr.IsPressed(VK_LBUTTON))
@@ -88,7 +73,6 @@ void MenuDispatcher::OnMethodCall(Awesomium::WebView * caller, unsigned int remo
 		m_menu->setEnable(false);
 		gameUtil.m_isPaused = false;
 		gameUtil.m_gameUIScene->m_mapUI["healthBar"]->setEnable(true);
-		//gameUtil.m_gameUIScene->m_mapUI["crosshair"]->setEnable(true);
 	}
 
 }

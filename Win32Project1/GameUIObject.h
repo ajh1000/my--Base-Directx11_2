@@ -18,7 +18,7 @@ public:
 	virtual void render();
 
 	void setEnable(bool enable);
-	void setPos(int x, int y,int width,int height);
+	void setPos(int x, int y);
 
 public:
 	HTMLTexture m_htmlTexture;

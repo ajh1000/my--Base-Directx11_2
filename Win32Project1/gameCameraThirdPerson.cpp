@@ -6,7 +6,7 @@
 gameCameraThirdPerson::gameCameraThirdPerson()
 {
 
-	m_distance = 20.f;
+	m_distance = 15.f;
 
 	m_sensitivity = 0.1f;
 
@@ -15,6 +15,8 @@ gameCameraThirdPerson::gameCameraThirdPerson()
 	m_vRight = D3DXVECTOR3(1, 0, 0);
 
 	D3DXMatrixIdentity(&m_matView);
+	m_desiredLookat = D3DXVECTOR3(0, 0, 0);
+	m_desiredEyePos = D3DXVECTOR3(0, 0, 0);
 }
 
 
@@ -41,6 +43,8 @@ void gameCameraThirdPerson::update()
 	{
 		m_currentPitch = -15;
 	}
+
+	
 }
 
 void gameCameraThirdPerson::lateUpdate()
@@ -57,8 +61,26 @@ void gameCameraThirdPerson::lateUpdate()
 
 	D3DXVec3TransformNormal(&vDistance, &vDistance, &matRotation);
 	
-	m_vLookat = player->transform.getPos();
-	m_vEye = m_vLookat + vDistance;
+	if (keyMgr.IsPressing(VK_RBUTTON))
+	{
+		m_desiredLookat = player->transform.getPos();
+		m_desiredLookat.y += 4;
+		m_desiredLookat += m_vForward * 10;
+
+		m_desiredEyePos = m_desiredLookat + vDistance;
+	}
+	else
+	{
+		//m_vLookat = player->transform.getPos();
+		//m_vEye = m_vLookat + vDistance;
+		
+		m_desiredLookat = player->transform.getPos();
+		m_desiredLookat.y += 3;
+		m_desiredEyePos = m_desiredLookat + vDistance;
+	}
+
+	D3DXVec3Lerp(&m_vEye, &m_vEye, &m_desiredEyePos, gameTimer.getDeltaTime() * 10);
+	D3DXVec3Lerp(&m_vLookat, &m_vLookat, &m_desiredLookat, gameTimer.getDeltaTime() * 10);
 	
 	D3DXMatrixLookAtLH(&m_matView, &m_vEye, &m_vLookat, &D3DXVECTOR3(0, 1, 0));
 
@@ -72,6 +94,7 @@ void gameCameraThirdPerson::lateUpdate()
 void gameCameraThirdPerson::setTargetPos(gameObject* object)
 {
 	player = (gamePlayer*)object;
+
 }
 
 D3DXMATRIX gameCameraThirdPerson::GetViewMat()

@@ -56,14 +56,16 @@ void Level::init()
 		Bullet Pooling Manager
 	*/
 	BulletManager::GetInstance().init(10);
-
+	
+	//global light direction;
+	D3DXVECTOR3 lightDir = D3DXVECTOR3(1, -1, -1);
+	D3DXVec3Normalize(&lightDir, &lightDir);
 
 
 	/*
 		SPIDER
-	*/
-	D3DXVECTOR3 lightDir = D3DXVECTOR3(1, -1, -1);
-	D3DXVec3Normalize(&lightDir, &lightDir);
+	
+	
 
 	Model* spider = new Model();
 	spider->transform.setPos(0, 0, 0);
@@ -72,7 +74,7 @@ void Level::init()
 	spider->init("./DATA/spider/", "Spider_3.fbx");
 	spider->m_AnimName = "Spider_Armature|Attack";
 	spider->m_lightProperties.lightDirection = lightDir;
-	gameUtil.m_vecGameObjects.push_back(spider);
+	gameUtil.m_vecGameObjects.push_back(spider);*/
 
 
 	/*
@@ -103,14 +105,14 @@ void Level::init()
 
 	/*
 	crosshair
-	*/
+	
 	gameCrosshair* crosshair = new gameCrosshair();
 	crosshair->init();
 	crosshair->transform.setPos(0, 0, 0);
 	crosshair->transform.setScale(2, 2, 2);
 	crosshair->transform.rotate(0, 0, 0);
 	gameUtil.m_vecGameObjects.push_back(crosshair);
-	gameUtil.m_mapTag["crosshair"] = crosshair;
+	gameUtil.m_mapTag["crosshair"] = crosshair;*/
 	//std::vector<gameObject*>::iterator it;
 	//for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
 	//{
@@ -307,7 +309,7 @@ void Level::lateUpdate()
 	{
 		gameUtil.GetMainCamera()->lateUpdate();
 		((gamePlayer*)gameUtil.m_mapTag["player"])->lateUpdate();
-		((gameCrosshair*)gameUtil.m_mapTag["crosshair"])->lateUpdate();
+		//((gameCrosshair*)gameUtil.m_mapTag["crosshair"])->lateUpdate();
 		BulletManager::GetInstance().update();
 		myPath.update();
 		phyWorld.update();

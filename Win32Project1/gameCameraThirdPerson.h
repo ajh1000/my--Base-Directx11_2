@@ -26,5 +26,9 @@ public:
 	D3DXVECTOR3     m_vForward;
 
 	D3DXMATRIX	m_matView;
+
+	D3DXVECTOR3 m_desiredLookat;
+	D3DXVECTOR3 m_desiredEyePos;
+	
 };
 
