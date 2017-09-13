@@ -30,15 +30,16 @@ void gameCameraThirdPerson::update()
 	curY = gameUtil.m_mouseY;
 
 	m_currentYaw += (curX - gameUtil.m_centerX)* m_sensitivity;
+	//m_currentPitch = 30;
 	m_currentPitch += (curY - gameUtil.m_centerY)* m_sensitivity;
 
 	if (m_currentPitch > 89)
 	{
 		m_currentPitch = 89;
 	}
-	else if (m_currentPitch < -45)
+	else if (m_currentPitch < -15)
 	{
-		m_currentPitch = -45;
+		m_currentPitch = -15;
 	}
 }
 

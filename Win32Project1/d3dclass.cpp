@@ -179,8 +179,7 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	// Set the handle for the window to render to.
     swapChainDesc.OutputWindow = hwnd;
 
-	// Turn multisampling off.
-    swapChainDesc.SampleDesc.Count = 1;
+    swapChainDesc.SampleDesc.Count = 4;
     swapChainDesc.SampleDesc.Quality = 0;
 
 	// Set to full screen or windowed mode.
@@ -394,27 +393,39 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	D3DXMatrixOrthoLH(&m_orthoMatrix, (float)screenWidth, (float)screenHeight, screenNear, screenDepth);
 
 	
-	D3D11_BLEND_DESC omDesc;
-	ZeroMemory(&omDesc, sizeof(D3D11_BLEND_DESC));
+	D3D11_BLEND_DESC blendStateDescription;
+	ZeroMemory(&blendStateDescription, sizeof(D3D11_BLEND_DESC));
 
-	omDesc.RenderTarget[0].BlendEnable = TRUE;
-	omDesc.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+	// Create an alpha enabled blend state description.
+	blendStateDescription.AlphaToCoverageEnable = true;
+	blendStateDescription.RenderTarget[0].BlendEnable = TRUE;
+	blendStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+	blendStateDescription.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	blendStateDescription.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendStateDescription.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+	
+	// Create the blend state using the description.
+	result = m_device->CreateBlendState(&blendStateDescription, &m_alphaEnableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
 
-	omDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
-	omDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
-	omDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	// Modify the description to create an alpha disabled blend state description.
+	blendStateDescription.RenderTarget[0].BlendEnable = FALSE;
 
-	omDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
-	omDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
-	omDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	// Create the blend state using the description.
+	result = m_device->CreateBlendState(&blendStateDescription, &m_alphaDisableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
 
-	omDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
-
-
-	HRESULT hresult = gameUtil.getDevice()->CreateBlendState(&omDesc, &m_blendState);
-
-	gameUtil.getDeviceContext()->OMSetBlendState(m_blendState, 0, 0xffffffff);
-
+	gameUtil.m_alphaDisableBlendingState = m_alphaDisableBlendingState;
+	gameUtil.m_alphaEnableBlendingState = m_alphaEnableBlendingState;
 
 	//view,proj,ortho mat set
 	gameCameraThirdPerson* mainCamera = new gameCameraThirdPerson();
@@ -426,7 +437,7 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 
 	//create objects & set them into gameworld
 	level.init();
-
+	
     return true;
 }
 
@@ -489,8 +500,9 @@ void D3DClass::Shutdown()
 
 	if(gameUtil.GetMainCamera())
 		delete gameUtil.GetMainCamera();
-	
-	SAFE_RELEASE(m_blendState);
+
+	SAFE_RELEASE(m_alphaEnableBlendingState);
+	SAFE_RELEASE(m_alphaDisableBlendingState);
 	return;
 }
 
@@ -517,7 +529,7 @@ void D3DClass::render()
 	/*
 	
 	*/
-
+	turnOnAlphaBlending();
 	// Present the back buffer to the screen since rendering is complete.
 	if (m_vsync_enabled)
 	{
@@ -532,8 +544,7 @@ void D3DClass::render()
 		// Present as fast as possible.
 		m_swapChain->Present(0, 0);
 	}
-
-	return;
+	turnOffAlphaBlending();
 }
 
 
@@ -579,4 +590,36 @@ void D3DClass::GetVideoCardInfo(char* cardName, int& memory)
 	strcpy_s(cardName, 128, m_videoCardDescription);
 	memory = m_videoCardMemory;
 	return;
+}
+
+void D3DClass::turnOnAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	m_deviceContext->OMSetBlendState(m_alphaEnableBlendingState, blendFactor, 0xffffffff);
+
+}
+
+void D3DClass::turnOffAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn off the alpha blending.
+
+	m_deviceContext->OMSetBlendState(m_alphaDisableBlendingState, blendFactor, 0xffffffff);
+
 }

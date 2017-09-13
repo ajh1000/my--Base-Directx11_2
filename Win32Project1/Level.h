@@ -25,8 +25,6 @@ public:
 private:
 	GameUIScene m_uiScene;
 
-	Model model;
-	Model model2;
 	MyPhysicsWorld phyWorld;
 
 	MyPathfinder myPath;

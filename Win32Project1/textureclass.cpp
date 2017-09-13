@@ -25,7 +25,7 @@ bool textureclass::load(string dir)
 
 	ScratchImage srcImg;
 
-	result = LoadFromWICFile(convert.c_str(), WIC_FLAGS_IGNORE_SRGB, nullptr, srcImg);
+	result = LoadFromWICFile(convert.c_str(), WIC_FLAGS_IGNORE_SRGB , nullptr, srcImg);
 
 
 	//then try dds
@@ -47,7 +47,6 @@ bool textureclass::load(string dir)
 			}
 		}
 	}
-
 	result = CreateShaderResourceView(gameUtil.getDevice(), srcImg.GetImages(), srcImg.GetImageCount(),
 		srcImg.GetMetadata(), &m_textureView);
 

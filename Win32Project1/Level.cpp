@@ -5,6 +5,8 @@
 #include "gamePlayer.h"
 #include "gameMap.h"
 #include "gameCameraThirdPerson.h"
+#include "BulletManager.h"
+#include "gameCrosshair.h"
 
 Level::Level()
 {
@@ -24,6 +26,8 @@ Level::~Level()
 	{
 		SAFE_DELETE(*it2);
 	}
+
+	BulletManager::GetInstance().shutdown();
 }
 
 void Level::init()
@@ -48,76 +52,65 @@ void Level::init()
 	phyWorld.init();
 	gameUtil.m_physicsWorld = &phyWorld;
 
+	/*
+		Bullet Pooling Manager
+	*/
+	BulletManager::GetInstance().init(10);
+
+
+
+	/*
+		SPIDER
+	*/
+	D3DXVECTOR3 lightDir = D3DXVECTOR3(1, -1, -1);
+	D3DXVec3Normalize(&lightDir, &lightDir);
+
+	Model* spider = new Model();
+	spider->transform.setPos(0, 0, 0);
+	spider->transform.setScale(0.02, 0.02, 0.02);
+	spider->transform.rotate(0, 0, 0);
+	spider->init("./DATA/spider/", "Spider_3.fbx");
+	spider->m_AnimName = "Spider_Armature|Attack";
+	spider->m_lightProperties.lightDirection = lightDir;
+	gameUtil.m_vecGameObjects.push_back(spider);
+
 
 	/*
 		PLAYER
 	*/
 	gamePlayer* player = new gamePlayer();
-	player->transform.setPos(0, 20, 0);
+	player->transform.setPos(0, 3, 0);
 	player->transform.setScale(0.02, 0.02, 0.02);
 	player->transform.rotate(0, 0, 0);
 	player->init("./DATA/ArmyPilot/", "ArmyPilot.x");
-	player->m_AnimName = "Idle";
-	player->m_lightProperties.lightDirection = D3DXVECTOR3(0, -1, 1);
+	player->m_AnimName = "Idle_Aim";
+	player->m_lightProperties.lightDirection = lightDir;
 	gameUtil.m_vecGameObjects.push_back(player);
 	gameUtil.m_mapTag["player"] = player;
 
 	((gameCameraThirdPerson*)gameUtil.GetMainCamera())->setTargetPos(player);
 
-	/*vector<XMFLOAT3> arr;
-	arr.resize(player->m_vertex_skinned_xm.size());
-	for (int i = 0; i < arr.size(); ++i)
-	{
-		arr[i] = player->m_vertex_skinned_xm[i].pos;
-	}
-
-	BoundingBox::CreateFromPoints(player->m_box,
-		arr.size(),
-		&arr[0],
-		sizeof(XMFLOAT3));
-
-	XMFLOAT4X4 mat;
-	player->transform.buildMatrixWVP();
-	D3DXMATRIX d3dxmat = player->transform.getWVP().world;
-	memcpy(&mat._11, &d3dxmat._11, sizeof(float) * 16);
-	player->m_box.Transform(player->m_box, XMLoadFloat4x4(&mat));
-*/
-//map
+	/*
+		MAP
+	*/
 	gameMap* pmap = new gameMap();
-	pmap->init("./DATA/map/", "map.obj");
+	pmap->init("./DATA/map2/", "map2.obj");
 	pmap->transform.setPos(0, 0, 0);
 	pmap->transform.setRot(0, 0, 0);
+	player->m_lightProperties.lightDirection = lightDir;
 	gameUtil.m_vecGameObjects.push_back(pmap);
 	gameUtil.m_mapTag["map"] = pmap;
 
-	////map AABB
-	//Model* pmapAABB = new Model();
-	//pmapAABB->init("./DATA/map/", "aabb.obj");
-	//pmapAABB->transform.setPos(0, 0, 0);
-	//pmapAABB->transform.setRot(0, 0, 0);
-	//gameUtil.m_vecGameObjects.push_back(pmapAABB);
-
-
-	//arr.clear();
-	//arr.resize(pmapAABB->m_vertex_skinned_xm.size());
-	//for (int i = 0; i < arr.size(); ++i)
-	//{
-	//	arr[i] = pmapAABB->m_vertex_skinned_xm[i].pos;
-	//}
-
-	//BoundingBox::CreateFromPoints(pmapAABB->m_box,
-	//	arr.size(),
-	//	&arr[0],
-	//	sizeof(XMFLOAT3));
-
-	//ZeroMemory(&mat._11, 4 * 16);
-
-	//pmapAABB->transform.buildMatrixWVP();
-	//d3dxmat = pmapAABB->transform.getWVP().world;
-	//memcpy(&mat._11, &d3dxmat._11, sizeof(float) * 16);
-
-	//pmapAABB->m_box.Transform(pmapAABB->m_box, XMLoadFloat4x4(&mat));
-
+	/*
+	crosshair
+	*/
+	gameCrosshair* crosshair = new gameCrosshair();
+	crosshair->init();
+	crosshair->transform.setPos(0, 0, 0);
+	crosshair->transform.setScale(2, 2, 2);
+	crosshair->transform.rotate(0, 0, 0);
+	gameUtil.m_vecGameObjects.push_back(crosshair);
+	gameUtil.m_mapTag["crosshair"] = crosshair;
 	//std::vector<gameObject*>::iterator it;
 	//for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
 	//{
@@ -129,10 +122,7 @@ void Level::init()
 
 void Level::update()
 {
-	//camera->update() : camera key processing.
-	if(gameUtil.m_isPaused==false)
-		gameUtil.GetMainCamera()->update();
-
+	
 	if (keyMgr.IsPressed(VK_ESCAPE))
 	{
 		if (gameUtil.m_isPaused == false)
@@ -161,6 +151,10 @@ void Level::update()
 
 		SetCursor(NULL);
 	}
+
+
+	if (gameUtil.m_isPaused == false)
+		gameUtil.GetMainCamera()->update();
 
 	//Model* player = (Model*)gameUtil.m_vecGameObjects[0];
 
@@ -308,15 +302,18 @@ void Level::update()
 
 void Level::lateUpdate()
 {
+	
 	if (gameUtil.m_isPaused == false)
 	{
 		gameUtil.GetMainCamera()->lateUpdate();
 		((gamePlayer*)gameUtil.m_mapTag["player"])->lateUpdate();
+		((gameCrosshair*)gameUtil.m_mapTag["crosshair"])->lateUpdate();
+		BulletManager::GetInstance().update();
 		myPath.update();
 		phyWorld.update();
 	}
 
-	//m_uiScene.update();
+	m_uiScene.update();
 }
 
 void Level::render()
@@ -327,7 +324,7 @@ void Level::render()
 		gameUtil.m_vecGameObjects[i]->render();
 	}
 
-
-	//m_uiScene.render();
+	BulletManager::GetInstance().render();
+	m_uiScene.render();
 }
 

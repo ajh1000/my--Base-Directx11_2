@@ -2,7 +2,7 @@
 #include "GameUIScene.h"
 #include "UImenu.h"
 #include "UIhealthBar.h"
-
+#include "UIcrosshair.h"
 GameUIScene::GameUIScene()
 {
 }
@@ -25,7 +25,7 @@ void GameUIScene::init()
 {
 	initDepthStencilState();
 
-	//http://35.194.212.122/ Apache2 WebServer running on the google cloud. Base OS : ubuntu. 24hour 365day.
+	//http://35.194.254.46/ Apache2 WebServer running on the google cloud. Base OS : ubuntu. 24hour 365day.
 	WebConfig config = WebConfig();
 	config.user_agent = WSLit("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36");
 	config.log_level = Awesomium::LogLevel::kLogLevel_Verbose;
@@ -36,23 +36,32 @@ void GameUIScene::init()
 
 	RECT rect;
 	GetClientRect(gameUtil.GetHWND(), &rect);
-	int titleX = rect.right  / 2 - 160;
-	int titleY = rect.bottom / 2 - 85;
-
+	int centerX = rect.right  / 2;
+	int centerY = rect.bottom / 2;
+	
 	UImenu * titleMenu = new UImenu();
-	titleMenu->init(titleX, titleY, 320, 190, 320, 190, "http://35.194.212.122/ui/TitleMenu.html");
+	titleMenu->init(centerX, centerY, 320, 190, 320, 190, "http://35.194.254.46/ui/TitleMenu.html");
 	titleMenu->setEnable(true);
 	titleMenu->m_htmlTexture.setAlwaysRender(true);
 	m_mapUI["titleMenu"] = titleMenu;
 
 	UIhealthBar* healthBar = new UIhealthBar();
-	healthBar->init(0, 0, 300, 70, 300, 70, "http://35.194.212.122/ui/healthBar.html");
-	healthBar->setEnable(false);
+	healthBar->init(0+150, 0+35, 300, 70, 300, 70, "http://35.194.254.46/ui/healthBar.html");
+	healthBar->setEnable(true);
 	healthBar->m_htmlTexture.setAlwaysRender(true);
 	m_mapUI["healthBar"] = healthBar;
-
+	/*
+	UIcrosshair* crosshair = new UIcrosshair();
+	crosshair->init(centerX, centerY, 48, 48, 106,106, "http://35.194.254.46/ui/crosshair.html"); 
+	crosshair->setEnable(true);
+	crosshair->m_htmlTexture.setAlwaysRender(true);
+	m_mapUI["crosshair"] = crosshair;
+	*/
 	m_vecGameUIObjects.push_back(titleMenu);
 	m_vecGameUIObjects.push_back(healthBar);
+	//m_vecGameUIObjects.push_back(crosshair);
+
+
 }
 
 void GameUIScene::update()

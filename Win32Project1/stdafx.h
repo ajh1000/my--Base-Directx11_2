@@ -49,9 +49,9 @@ static type& GetInstance() \
 	return inst; \
 }
 
-#define SAFE_RELEASE(t) if(t) { t->release(); t=0;}
-#define SAFE_DELETE(t) if(t) { delete t; t=0;}
-#define SAFE_ARR_DELETE(t) if(t) {delete[] t; t=0; }
+#define SAFE_RELEASE(t) if(&t) { t->release(); t=0;}
+#define SAFE_DELETE(t) if(&t) { delete t; t=0;}
+#define SAFE_ARR_DELETE(t) if(&t) {delete[] t; t=0; }
 #define ERROR_MSGBOX(isTrue,text) {\
 	if (isTrue)\
 	{\

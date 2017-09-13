@@ -60,10 +60,15 @@ public:
 
 	std::vector<gameObject*> m_vecGameObjects;
 	std::vector<Model*> m_vecEnemys;
-	map<string, Model*> m_mapTag; //This is just pointing m_vecEnemys, m_vecGameObjects. so no need to clear contents.
+	map<string, gameObject*> m_mapTag; //This is just pointing m_vecEnemys, m_vecGameObjects. so no need to clear contents.
 
 	GameUIScene* m_gameUIScene=nullptr;
 	MyPhysicsWorld* m_physicsWorld = nullptr;
+
+
+	ID3D11BlendState* m_alphaEnableBlendingState = nullptr;
+	ID3D11BlendState* m_alphaDisableBlendingState = nullptr;
+
 private:
 	ID3D11Device* m_device;
 	ID3D11DeviceContext* m_deviceContext;

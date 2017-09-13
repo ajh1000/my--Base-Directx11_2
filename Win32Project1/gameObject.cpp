@@ -18,6 +18,11 @@ gameObject::~gameObject()
 	SAFE_RELEASE(m_indexBuffer);
 	SAFE_RELEASE(m_WVPBuffer);
 
+	m_vsblob->Release();
+	m_vsblob = 0;
+	m_psblob->Release();
+	m_psblob = 0;
+
 }
 
 void gameObject::settingDeafaultLayouts()
@@ -127,6 +132,9 @@ void gameObject::settingDeafaultLayouts()
 
 void gameObject::Init_compileShader(char * vsDir, char * psDir)
 {
+	if (m_vs != nullptr && m_ps != nullptr)
+		return;
+
 	HRESULT result, result2;
 	result = D3DX11CompileFromFile(vsDir, NULL, NULL, "main", "vs_4_0", D3D10_SHADER_ENABLE_STRICTNESS | D3D10_SHADER_DEBUG | D3D10_SHADER_SKIP_OPTIMIZATION, 0, NULL,
 		&m_vsblob, NULL, NULL);
@@ -190,11 +198,6 @@ void gameObject::Init_polygonLayout(EPolygonLayout eType)
 			m_vsblob->GetBufferSize(), &m_layout);
 	}
 
-	m_vsblob->Release();
-	m_vsblob = 0;
-	m_psblob->Release();
-	m_psblob = 0;
-
 	gameObject::Init_CreateConstantBuffer(&m_WVPBuffer, sizeof(matrix_WorldViewProj));
 }
 
@@ -254,6 +257,38 @@ void gameObject::Init_CreateConstantBuffer(ID3D11Buffer** ppbuffer, UINT ByteWid
 
 }
 
+
+void gameObject::turnOnAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn on the alpha blending.
+	gameUtil.getDeviceContext()->OMSetBlendState(gameUtil.m_alphaEnableBlendingState, blendFactor, 0xffffffff);
+
+}
+
+void gameObject::turnOffAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn off the alpha blending.
+	gameUtil.getDeviceContext()->OMSetBlendState(gameUtil.m_alphaDisableBlendingState, blendFactor, 0xffffffff);
+
+}
 
 void gameObject::init()
 {

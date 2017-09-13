@@ -2,7 +2,6 @@
 
 #include <btBulletDynamicsCommon.h>
 #include <string>
-
 class MyPhysicsWorld
 {
 public:
@@ -13,6 +12,7 @@ public:
 	void update();
 
 	//create and add rigidbody to dynamic world.
+	void CreateSphereRigidbody(D3DXVECTOR3 pos, float radius, string tag);
 	void CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
 		vector<vertex_ptn_skinned_xm>& vertices,
 		vector<UINT>& indices, string tag);
@@ -23,7 +23,6 @@ public:
 	vector<btRigidBody*> m_vecRigidbody;
 
 	map<string, btRigidBody*> m_mapRigidbody;
-
 public:
 	//must use after MyPhysicsWorld::init();
 	btDiscreteDynamicsWorld* m_dynamicsWorld = nullptr;

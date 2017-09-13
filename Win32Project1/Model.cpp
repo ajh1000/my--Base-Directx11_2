@@ -165,7 +165,7 @@ void Model::save(string fileName)
 	size = m_mapTextureFileNames.size();
 	fout.write((char*)&size, sizeof(int));
 
-	map<int, string>::iterator it_mapTexture=m_mapTextureFileNames.begin();
+	map<int, string>::iterator it_mapTexture = m_mapTextureFileNames.begin();
 
 	for (; it_mapTexture != m_mapTextureFileNames.end(); ++it_mapTexture)
 	{
@@ -173,7 +173,7 @@ void Model::save(string fileName)
 		string data = it_mapTexture->second;
 
 		int first = it_mapTexture->first;
-		
+
 		fout.write((char*)&first, 4);
 
 		fout.write((char*)&stringlen, 4);
@@ -315,12 +315,12 @@ void Model::load(string fileName)
 		m_AnimationClips[i].TotalFrames = totalframes;
 
 	}
-	
+
 	//m_vecTextureFileNames
 	//also!!! setting textures 
 
 	fin.read((char*)&size, 4);
-	
+
 	for (int i = 0; i < size; ++i)
 	{
 		int stringlen;
@@ -349,7 +349,9 @@ void Model::load(string fileName)
 void Model::init(char * dir, char * FileName)
 {
 
-	Init_compileShader("./cube_normal_vs.hlsl", "./cube_normal_ps.hlsl");
+		Init_compileShader("./cube_normal_vs.hlsl", "./cube_normal_ps.hlsl");
+	
+
 	Init_polygonLayout(EPolygonLayout::LAYOUT_PTN_SKINNED);
 	Init_CreateConstantBuffer(&m_LightBuffer, sizeof(LightBuffer));
 	Init_CreateConstantBuffer(&m_boneBuffer, sizeof(XMFLOAT4X4) * 96);
@@ -367,7 +369,7 @@ void Model::init(char * dir, char * FileName)
 			aiProcess_JoinIdenticalVertices |		// join identical vertices/ optimize indexing
 			aiProcess_ValidateDataStructure |		// perform a full validation of the loader's output
 			aiProcess_ImproveCacheLocality |		// improve the cache locality of the output vertices
-			aiProcess_RemoveRedundantMaterials |	// remove redundant materials
+			//aiProcess_RemoveRedundantMaterials |	// remove redundant materials
 			aiProcess_GenUVCoords |					// convert spherical, cylindrical, box and planar mapping to proper UVs
 			aiProcess_TransformUVCoords |			// pre-process UV transformations (scaling, translation ...)
 			aiProcess_FindInstances |				// search for instanced meshes and remove them by references to one master
@@ -397,9 +399,9 @@ void Model::init(char * dir, char * FileName)
 		m_tmpBaseFaceIdx = 0;
 		m_totalBoneNum = 0;
 
-		RootNode = createNodeTree(_aiScene->mRootNode, nullptr);
 
-		//loadMaterial()
+		RootNode = createNodeTree(_aiScene->mRootNode, nullptr);
+		
 
 		if (m_HasAnimations)
 		{
@@ -415,6 +417,8 @@ void Model::init(char * dir, char * FileName)
 	else //save file found
 	{
 		load(FileName);
+
+
 		if (m_vecCacheClips.size() > 0)
 		{
 			m_HasAnimations = true;
@@ -457,7 +461,7 @@ void Model::init(char * dir, char * FileName)
 
 	gameUtil.getDevice()->CreateSamplerState(&samplerDesc, &m_sampleState);
 
-//	D3DXComputeBoundingBox()
+	//	D3DXComputeBoundingBox()
 }
 
 /*
@@ -983,12 +987,12 @@ void Model::render()
 	D3DXMatrixTranspose(&wvp.view, &wvp.view);
 	D3DXMatrixTranspose(&wvp.proj, &wvp.proj);
 
-	
-	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp,0);
-	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
-	SetPSParameters<AlphaBlendBuffer>(m_AlphaBlendBuffer, m_alphaProperty,1);
 
-	
+	SetVSParameters<matrix_WorldViewProj>(m_WVPBuffer, wvp, 0);
+	SetPSParameters<LightBuffer>(m_LightBuffer, m_lightProperties);
+	SetPSParameters<AlphaBlendBuffer>(m_AlphaBlendBuffer, m_alphaProperty, 1);
+
+
 
 
 
@@ -1014,7 +1018,7 @@ void Model::render()
 			dataPtr = (boneTMBuffer*)mappedResource.pData;
 			ZeroMemory(dataPtr->transform, sizeof(XMFLOAT4X4) * 96);
 			int idx = m_mapAnimClipNameIdx[m_AnimName];
-			
+
 			int boneTMSize = m_vecCacheClips[m_mapAnimClipNameIdx[m_AnimName]][m_frame][i].size();
 
 			//some meshes have zero bone TMs.
@@ -1091,7 +1095,7 @@ void Model::settingTextures(const aiScene* pScene, string dir)
 
 		if ((material->GetTexture(aiTextureType_DIFFUSE, 0, &aiPath)) == AI_SUCCESS)
 		{
-			
+
 			string path = aiPath.C_Str();
 			pos = path.rfind("/");
 
@@ -1129,7 +1133,7 @@ void Model::settingTextures(const aiScene* pScene, string dir)
 
 			m_mapTextureFileNames[i] = result;
 
-			m_vecMesh[i].ptexture->load( result.c_str() );
+			m_vecMesh[i].ptexture->load(result.c_str());
 		}
 	}
 

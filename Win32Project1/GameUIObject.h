@@ -18,11 +18,18 @@ public:
 	virtual void render();
 
 	void setEnable(bool enable);
+	void setPos(int x, int y,int width,int height);
 
 public:
 	HTMLTexture m_htmlTexture;
 
 public:
 	bool m_isEnabled = true;
+
+public:
+	int m_left;
+	int m_top;
+	int m_width;
+	int m_height;
 };
 

@@ -12,6 +12,9 @@ public:
 		int textureWidth, int textureHeight, string URL);
 	virtual void update();
 	virtual void render();
-private:
+	void TakeDamage(float dmg);
+public:
+	float m_hp = 1;
+	
 };
 

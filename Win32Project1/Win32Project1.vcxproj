@@ -75,7 +75,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\DetourCrowd\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\Detour\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\include\assimp;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletFileLoader;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletWorldImporter;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\DetourCrowd\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\Detour\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\include\assimp;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\lib\x86;$(LibraryPath)</LibraryPath>
     <ExecutablePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\bin;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\bin\x86;$(ExecutablePath)</ExecutablePath>
     <SourcePath>$(SourcePath)</SourcePath>
@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;detour.lib;DirectXTex.lib;assimp.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BulletFileLoader_Debug.lib;BulletWorldImporter_Debug.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;detour.lib;DirectXTex.lib;assimp.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -171,6 +171,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="animationData.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="cube_normal.h" />
@@ -178,8 +179,10 @@
     <ClInclude Include="CustomWindow.h" />
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="d3dutil.h" />
+    <ClInclude Include="gameBullet.h" />
     <ClInclude Include="gameCamera.h" />
     <ClInclude Include="gameCameraThirdPerson.h" />
+    <ClInclude Include="gameCrosshair.h" />
     <ClInclude Include="gameMap.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gamePlayer.h" />
@@ -200,11 +203,13 @@
     <ClInclude Include="textureclass.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="UIcrosshair.h" />
     <ClInclude Include="UIhealthBar.h" />
     <ClInclude Include="UImenu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animationData.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="cube_normal.cpp" />
@@ -212,8 +217,10 @@
     <ClCompile Include="CustomWindow.cpp" />
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="d3dutil.cpp" />
+    <ClCompile Include="gameBullet.cpp" />
     <ClCompile Include="gameCamera.cpp" />
     <ClCompile Include="gameCameraThirdPerson.cpp" />
+    <ClCompile Include="gameCrosshair.cpp" />
     <ClCompile Include="gameMap.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="gamePlayer.cpp" />
@@ -236,6 +243,7 @@
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="textureclass.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="UIcrosshair.cpp" />
     <ClCompile Include="UIhealthBar.cpp" />
     <ClCompile Include="UImenu.cpp" />
   </ItemGroup>

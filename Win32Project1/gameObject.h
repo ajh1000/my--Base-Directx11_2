@@ -29,7 +29,7 @@ private:
 protected:
 	enum EPolygonLayout { LAYOUT_PC = 0, LAYOUT_PT, LAYOUT_PTN, LAYOUT_PTN_SKINNED };
 
-protected: //MUST USE
+public: //MUST USE
 	void Init_compileShader(char* vsDir, char* psDir);
 	void Init_polygonLayout(EPolygonLayout eType);
 
@@ -47,6 +47,8 @@ protected: //MUST USE
 	template<typename  Type>
 	void SetPSParameters(ID3D11Buffer* buffer, Type& data, UINT slotNumber = 0);
 
+	void turnOnAlphaBlending();
+	void turnOffAlphaBlending();
 public:
 	virtual void init();
 	virtual void update();
@@ -56,12 +58,13 @@ public:
 public:
 	MyTransform transform;
 
-protected:
 	ID3D11VertexShader* m_vs = nullptr;
-	ID3D11PixelShader* m_ps = nullptr;
+	ID3D11PixelShader* m_ps = nullptr; 
 	ID3D11InputLayout* m_layout = nullptr;
 	ID3D10Blob* m_vsblob = nullptr, *m_psblob = nullptr; //release in Init_polygonLayout
 
+protected:
+	
 
 	ID3D11Buffer* m_vertexBuffer = nullptr;
 	unsigned int m_sizeVertexType = 0;

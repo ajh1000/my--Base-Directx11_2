@@ -18,9 +18,11 @@ public:
 public:
 	btRigidBody* m_rigidbody = nullptr;
 
+	bool m_isDead = false;
 private:
 	D3DXQUATERNION m_desiredQuat;
 	D3DXQUATERNION m_OriginalQuat;
 	float m_slerpFactor;
+	string m_strType;
 };
 

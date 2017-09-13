@@ -1,12 +1,9 @@
 #include "stdafx.h"
 #include "MyPhysicsWorld.h"
+#include <btBulletWorldImporter.h>
 
 MyPhysicsWorld::MyPhysicsWorld()
 {
-
-
-
-
 }
 
 
@@ -38,7 +35,28 @@ MyPhysicsWorld::~MyPhysicsWorld()
 
 }
 
-void MyPhysicsWorld::CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo, 
+void MyPhysicsWorld::CreateSphereRigidbody(D3DXVECTOR3 pos, float radius, string tag)
+{
+	btCollisionShape* collisionShape = new btSphereShape(radius);
+
+	btDefaultMotionState* motionState =
+		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(pos.x, pos.y, pos.z)));
+
+
+
+	btVector3 fallInertia(0, 0, 0);
+	collisionShape->calculateLocalInertia(2, fallInertia);
+
+	btRigidBody::btRigidBodyConstructionInfo
+		rigidBodyCI(1, motionState, collisionShape, fallInertia);
+
+	btRigidBody* rigidbody = new btRigidBody(rigidBodyCI);
+	m_dynamicsWorld->addRigidBody(rigidbody);
+	
+	m_mapRigidbody[tag] = rigidbody;
+}
+
+void MyPhysicsWorld::CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
 	vector<vertex_ptn_skinned_xm>& vertices,
 	vector<UINT>& indices, string tag)
 {
@@ -67,6 +85,8 @@ void MyPhysicsWorld::CreateStaticRigidbody(vector<Model::MeshInfo>& meshInfo,
 
 	btCollisionShape* collisionShape = new btBvhTriangleMeshShape(staticMesh, true);
 	collisionShape->setMargin(0.05f);
+	
+
 
 	m_vecCollisionShape.push_back(collisionShape);
 
@@ -106,6 +126,16 @@ void MyPhysicsWorld::CreateCapsuleRigidbody(D3DXVECTOR3 pos, float radius, float
 	m_mapRigidbody[tag] = rigidbody;
 }
 
+void  myTickCallback(btDynamicsWorld *world, btScalar timeStep) {
+	float maxSpeed = 20;
+	btRigidBody* playerBody = gameUtil.m_physicsWorld->m_mapRigidbody["player"];
+	btVector3 velocity = playerBody->getLinearVelocity();
+	btScalar speed = velocity.length();
+	if (speed > maxSpeed) {
+		velocity *= maxSpeed / speed;
+		playerBody->setLinearVelocity(velocity);
+	}
+}
 
 void MyPhysicsWorld::init()
 {
@@ -132,46 +162,13 @@ void MyPhysicsWorld::init()
 	//m_rigidbody_map->setRestitution(1.0f);
 	//m_rigidbody_player->setRestitution(1.0f);
 	//
+
+	m_dynamicsWorld->setInternalTickCallback(myTickCallback);
 }
+
 
 void MyPhysicsWorld::update()
 {
 	m_dynamicsWorld->stepSimulation(1 / 60.0f, 10);
-
-	//btTransform playerTransform;
-	//m_rigidbody_player->getMotionState()->getWorldTransform(playerTransform);
-
-
-	//Model* player = gameUtil.m_mapTag["player"];
-	//player->transform.setPos(playerTransform.getOrigin().getX(),
-	//	playerTransform.getOrigin().getY(),
-	//	playerTransform.getOrigin().getZ());
-
-	//btQuaternion quat = playerTransform.getRotation();
-	//D3DXQUATERNION d3dxquat = D3DXQUATERNION(quat.x(), quat.y(), quat.z(), quat.w());
-
-	//player->transform.setRot(d3dxquat);
-
-
-
-	//if (keyMgr.IsPressed(VK_1))
-	//{
-
-	//	m_rigidbody_player->activate(true);
-
-	//	//clear all velocity. 
-	//	m_rigidbody_player->setAngularVelocity(btVector3(0, 0, 0));
-	//	m_rigidbody_player->setLinearVelocity(btVector3(0, 0, 0));
-
-	//	m_rigidbody_player->getWorldTransform().setIdentity();
-	//	m_rigidbody_player->getWorldTransform().setOrigin(btVector3(0, 50, 0));
-	//	
-	//}
-
-	//if (keyMgr.IsPressing(VK_2))
-	//{
-	//	m_rigidbody_player->activate(true);
-
-	//	m_rigidbody_player->applyCentralImpulse(btVector3(0, 0, 1.f));
-	//}
+	
 }
