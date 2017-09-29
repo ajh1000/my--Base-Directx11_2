@@ -24,7 +24,6 @@
     <ClInclude Include="Terrain.h">
       <Filter>TestPrimitive</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="modelNodes.h">
       <Filter>Loader</Filter>

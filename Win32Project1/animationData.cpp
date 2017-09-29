@@ -27,7 +27,7 @@ float BoneAnimation::GetEndTime() const
 
 void BoneAnimation::Interpolate(
 	_In_ float t,
-	_Out_ DirectX::XMFLOAT4X4& M,
+	_Out_ XMFLOAT4X4& M,
 	_In_opt_ bool interpolate) const
 {
 	if (t <= Keyframes.front().TimePos)
@@ -117,7 +117,7 @@ void BoneAnimation::Interpolate(
 
 void AnimationClip::Interpolate(
 	_In_ float t,
-	_Out_ std::vector<DirectX::XMFLOAT4X4>& boneTransforms,
+	_Out_ std::vector<XMFLOAT4X4>& boneTransforms,
 	_In_opt_ bool interpolate) const
 {
 	boneTransforms.resize(BoneAnimations.size());
@@ -169,7 +169,7 @@ UINT AnimationData::BoneCount() const
 
 //void Engine::AnimationData::Set(
 //	_In_ std::vector<int>& boneHierarchy,
-//	_In_ std::vector<DirectX::XMFLOAT4X4>& boneOffsets,
+//	_In_ std::vector<XMFLOAT4X4>& boneOffsets,
 //	_In_ std::map<std::wstring, AnimationClip>& animations)
 //{
 //	_boneHierarchy = boneHierarchy;
@@ -188,7 +188,7 @@ UINT AnimationData::BoneCount() const
 void AnimationData::GetFinalTransforms(
 	//_In_ const std::wstring& clipName,
 	_In_ float timePos,
-	_In_ std::vector<DirectX::XMFLOAT4X4>& localTransforms,
+	_In_ std::vector<XMFLOAT4X4>& localTransforms,
 	_In_opt_ bool interpolate) const
 {
 	if (_animations.size() == 0)

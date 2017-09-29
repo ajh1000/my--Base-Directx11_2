@@ -8,7 +8,7 @@ struct Material
 		: Ambient(0, 0, 0, 0), Diffuse(0, 0, 0, 0), Specular(0, 0, 0, 0), Reflect(0, 0, 0, 0)
 	{}
 
-	DirectX::XMFLOAT4 Ambient;
+	XMFLOAT4 Ambient;
 	DirectX::XMFLOAT4 Diffuse;
 	DirectX::XMFLOAT4 Specular;
 	DirectX::XMFLOAT4 Reflect;
@@ -106,8 +106,8 @@ struct modelNode
 		this->Name = node->mName.C_Str();
 
 		// Convert LocalTransform from aiMatrix to XMFLOAT4X4
-		DirectX::XMMATRIX* tm = reinterpret_cast<DirectX::XMMATRIX*>(&node->mTransformation);
-		DirectX::XMMATRIX om(*tm);
+		XMMATRIX* tm = reinterpret_cast<XMMATRIX*>(&node->mTransformation);
+		XMMATRIX om(*tm);
 		XMStoreFloat4x4(&LocalTransform, om);
 	}
 

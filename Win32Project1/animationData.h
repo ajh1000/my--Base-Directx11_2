@@ -6,9 +6,9 @@
 		~Keyframe();
 
 		float TimePos;
-		DirectX::XMFLOAT3 Translation;
-		DirectX::XMFLOAT3 Scale;
-		DirectX::XMFLOAT4 RotationQuat;
+		XMFLOAT3 Translation;
+		XMFLOAT3 Scale;
+		XMFLOAT4 RotationQuat;
 	};
 	struct BoneAnimation
 	{
@@ -17,7 +17,7 @@
 
 		void Interpolate(
 			_In_ float t,
-			_Out_ DirectX::XMFLOAT4X4& M,
+			_Out_ XMFLOAT4X4& M,
 			_In_opt_ bool interpolate = true) const;
 
 		std::vector<Keyframe> Keyframes;
@@ -30,7 +30,7 @@
 
 		void Interpolate(
 			_In_ float t,
-			_Out_ std::vector<DirectX::XMFLOAT4X4>& boneTransforms,
+			_Out_ std::vector<XMFLOAT4X4>& boneTransforms,
 			_In_opt_ bool interpolate = true) const;
 
 		const char* getBoneNameAt(int idx);
@@ -48,9 +48,9 @@
 
 		UINT BoneCount() const;
 
-		inline static void Transpose(_In_ DirectX::XMFLOAT4X4& m)
+		inline static void Transpose(_In_ XMFLOAT4X4& m)
 		{
-			DirectX::XMMATRIX M = XMLoadFloat4x4(&m);
+			XMMATRIX M = XMLoadFloat4x4(&m);
 
 			M = XMMatrixTranspose(M);
 
@@ -70,7 +70,7 @@
 
 		//void Set(
 		//	_In_ std::vector<int>& boneHierarchy, 
-		//	_In_ std::vector<DirectX::XMFLOAT4X4>& boneOffsets,
+		//	_In_ std::vector<XMFLOAT4X4>& boneOffsets,
 		//	_In_ std::map<std::string, AnimationClip>& animations);
 
 		void AddAnimationClip(_In_ AnimationClip animationClip)
@@ -91,7 +91,7 @@
 		void GetFinalTransforms(
 			//_In_ const std::string& clipName, 
 			_In_ float timePos,
-			_In_ std::vector<DirectX::XMFLOAT4X4>& localTransforms,
+			_In_ std::vector<XMFLOAT4X4>& localTransforms,
 			_In_opt_ bool interpolate = true) const;
 
 	private:

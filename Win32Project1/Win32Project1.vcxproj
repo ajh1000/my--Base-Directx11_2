@@ -76,7 +76,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletFileLoader;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletWorldImporter;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\DetourCrowd\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\Detour\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\include\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Debug;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\lib;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\lib\x86;$(LibraryPath)</LibraryPath>
     <ExecutablePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\bin;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\bin\x86;$(ExecutablePath)</ExecutablePath>
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
@@ -198,7 +198,6 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="MyPathfinder.h" />
     <ClInclude Include="MyPhysicsWorld.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />

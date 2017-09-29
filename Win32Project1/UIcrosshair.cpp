@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "UIcrosshair.h"
 
-
 UIcrosshair::UIcrosshair()
 {
 }
@@ -100,17 +99,41 @@ D3DXVECTOR3 UIcrosshair::screenToWorld(D3DXVECTOR3 vIn)
 	D3DXMatrixTranslation(&world, vIn.x, vIn.y, vIn.z);
 
 
+	
 	XMFLOAT4X4 xmproj, xmview, xmworld;
 	memcpy(xmproj.m, proj.m, sizeof(float) * 16);
 	memcpy(xmview.m, view.m, sizeof(float) * 16);
 	memcpy(xmworld.m, world.m, sizeof(float) * 16);
+	
 
-	//XMLoadFloat3(&XMFLOAT3(end.x(), end.y(), end.z()))
-	XMVECTOR vOut = XMVector3Project(XMVectorZero(),
+	
+	FXMMATRIX  testProj = XMLoadFloat4x4(&xmproj);
+	XMMATRIX testView= XMLoadFloat4x4(&xmview);
+	XMMATRIX testWorld= XMLoadFloat4x4(&xmworld);
+
+
+	const float HalfViewportWidth = 1600 * 0.5f;
+	const float HalfViewportHeight = 900 * 0.5f;
+
+	XMVECTOR Scale = XMVectorSet(HalfViewportWidth, -HalfViewportHeight, 1 - 0, 0.0f);
+	XMVECTOR Offset = XMVectorSet(0 + HalfViewportWidth, 0 + HalfViewportHeight, 0, 0.0f);
+
+	XMMATRIX Transform = XMMatrixMultiply(testWorld, testView);
+	Transform = XMMatrixMultiply(Transform, testProj);
+
+	XMVECTOR Result = XMVector3TransformCoord(XMVectorZero(), Transform);
+
+	Result = XMVectorMultiplyAdd(Result, Scale, Offset);
+
+	/*
+	projection 부분에서 에러난다. FXMMATRIX으로 받는게 원인인 것 같다.
+	XMVECTOR vOut = myXMVector3Project(XMVectorZero(),
 		0, 0, 1600, 900, 0, 1,
-		XMLoadFloat4x4(&xmproj), XMLoadFloat4x4(&xmview), XMLoadFloat4x4(&xmworld));
-
+		testProj, testView, testWorld);
+	  */
 	XMFLOAT3 screenPoint;
-	XMStoreFloat3(&screenPoint, vOut);
+	XMStoreFloat3(&screenPoint, Result);
+	
 	return D3DXVECTOR3(screenPoint.x, screenPoint.y, screenPoint.z);
+	
 }

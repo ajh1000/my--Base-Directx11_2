@@ -66,7 +66,9 @@ static type& GetInstance() \
 #include <d3dcommon.h>
 #include <d3d11.h>
 #include <d3dx11.h>
-#include <D3DX10math.h>
+//#include <D3DX10math.h>
+
+
 
 #include <DirectXMath.h>
 using namespace DirectX;
@@ -76,10 +78,11 @@ using namespace DirectX;
 #include "Types.h"
 #include "KeyManager.h"
 
+/*
 XMFLOAT4X4& xmIdentityMat()
 {
 	static XMFLOAT4X4 identity;
 	XMStoreFloat4x4(&identity, XMMatrixIdentity());
 
 	return identity;
-}
+}*/

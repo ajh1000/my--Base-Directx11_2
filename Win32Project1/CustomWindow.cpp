@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "CustomWindow.h"
 
-#include "resource1.h"
 
 
 CustomWindow * g_window;
