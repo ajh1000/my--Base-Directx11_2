@@ -29,6 +29,7 @@ void UIhealthBar::render()
 	GameUIObject::render();
 }
 
+
 void UIhealthBar::TakeDamage(float dmg)
 {
 	if (m_htmlTexture.m_view)
@@ -55,6 +56,24 @@ void UIhealthBar::TakeDamage(float dmg)
 			forward.y = 0;
 			((gamePlayer*)gameUtil.m_mapTag["player"])->m_rigidbody->applyCentralImpulse(btVector3( forward.x,
 				0,forward.z)*5);
+		}
+	}
+}
+
+void UIhealthBar::reset()
+{
+	if (m_htmlTexture.m_view)
+	{
+
+		JSValue window = m_htmlTexture.m_view->ExecuteJavascriptWithResult(
+			WSLit("window"), WSLit(""));
+
+		if (window.IsObject()) {
+			JSArray args;
+			m_hp = 1;
+
+			window.ToObject().Invoke(WSLit("reset"), args);
+
 		}
 	}
 }

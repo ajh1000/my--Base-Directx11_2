@@ -183,6 +183,8 @@
     <ClInclude Include="gameCamera.h" />
     <ClInclude Include="gameCameraThirdPerson.h" />
     <ClInclude Include="gameCrosshair.h" />
+    <ClInclude Include="gameEnemy.h" />
+    <ClInclude Include="gameEnemyManager.h" />
     <ClInclude Include="gameMap.h" />
     <ClInclude Include="gameObject.h" />
     <ClInclude Include="gamePlayer.h" />
@@ -221,6 +223,8 @@
     <ClCompile Include="gameCamera.cpp" />
     <ClCompile Include="gameCameraThirdPerson.cpp" />
     <ClCompile Include="gameCrosshair.cpp" />
+    <ClCompile Include="gameEnemy.cpp" />
+    <ClCompile Include="gameEnemyManager.cpp" />
     <ClCompile Include="gameMap.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="gamePlayer.cpp" />

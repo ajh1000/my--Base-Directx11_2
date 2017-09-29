@@ -49,7 +49,7 @@ public:
 
 
 
-	void pick(int x, int y);
+	void pick(int x, int y,D3DXVECTOR3& vOutOrigin,D3DXVECTOR3& vOutDir);
 	float pickedPos[3] = {};
 	//float targetPos[3] = {};
 	bool GameStart=false;

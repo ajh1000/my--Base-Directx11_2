@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MyPathfinder.h"
-#include "Model.h"
+#include "gameCameraThirdPerson.h"
+#include "gameEnemyManager.h"
 
 MyPathfinder::MyPathfinder()
 {
@@ -108,7 +109,7 @@ void MyPathfinder::addAgent(float x, float y, float z)
 {
 	dtCrowdAgent agent;
 	dtCrowdAgentParams params = {};
-	params.radius = 0.6;
+	params.radius = 3;
 	params.height = 2.0;
 	params.maxAcceleration = 8.0f;
 	params.maxSpeed = 3.5f;
@@ -125,6 +126,55 @@ void MyPathfinder::addAgent(float x, float y, float z)
 
 void MyPathfinder::update()
 {
+	gameCameraThirdPerson* camera = (gameCameraThirdPerson*)gameUtil.GetMainCamera();
+
+	if (keyMgr.IsPressed(VK_LBUTTON) && camera->m_camMode == camera->FPS_MODE 
+		&&gameUtil.m_isPaused==true)
+	{
+		D3DXVECTOR3 origin, dir;
+		gameUtil.GetMainCamera()->pick(gameUtil.m_mouseX, gameUtil.m_mouseY, origin, dir);
+
+		btVector3 start = btVector3(origin.x, origin.y, origin.z);
+		btVector3 end = start + btVector3(dir.x, dir.y, dir.z) * 1000;
+
+		btCollisionWorld::ClosestRayResultCallback RayCallback(start, end);
+
+
+		gameUtil.m_physicsWorld->m_dynamicsWorld->rayTest(start, end, RayCallback);
+
+		if (RayCallback.hasHit())
+		{
+			end = RayCallback.m_hitPointWorld;
+
+			gameEnemyManager::GetInstance().instantiate(D3DXVECTOR3(end.x(), end.y(), end.z()));
+			addAgent(end.x(), end.y(), end.z());
+		}
+	}
+
+	if (camera->m_camMode == camera->TPS_MODE)
+	{
+		const dtQueryFilter* filter = crowd->getFilter(0);
+		const float* ext = crowd->getQueryExtents();
+
+		D3DXVECTOR3 playerPos = gameUtil.m_vecGameObjects[0]->transform.getPos();
+
+		float p[3] = {
+			playerPos.x,
+			playerPos.y,
+			playerPos.z };
+
+		navQuery->findNearestPoly(p, ext, filter, &gameUtil.myPath->m_targetRef, gameUtil.myPath->m_targetPos);
+		for (int i = 0; i < crowd->getAgentCount(); ++i)
+		{
+			gameUtil.myPath->crowd->requestMoveTarget(i, gameUtil.myPath->m_targetRef, gameUtil.myPath->m_targetPos);
+		}
+
+		dtCrowdAgentDebugInfo info;
+		crowd->update(gameTimer.getDeltaTime(), &info);
+			
+	}
+
+
 	/*
 	Model* player = (Model*)gameUtil.m_vecGameObjects[0];
 

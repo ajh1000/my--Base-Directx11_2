@@ -13,8 +13,18 @@ BulletManager::~BulletManager()
 
 void BulletManager::shutdown()
 {
-	for (int i = 0; i < m_vecBullets.size(); ++i)
+	SAFE_RELEASE(m_vecBullets[0]->m_vs);
+	SAFE_RELEASE(m_vecBullets[0]->m_ps);
+	SAFE_RELEASE(m_vecBullets[0]->m_vsblob);
+	SAFE_RELEASE(m_vecBullets[0]->m_psblob);
+	SAFE_DELETE(m_vecBullets[0]);
+	for (int i = 1; i < m_vecBullets.size(); ++i)
 	{
+		m_vecBullets[i]->m_vs = nullptr;
+		m_vecBullets[i]->m_ps = nullptr;
+		m_vecBullets[i]->m_vsblob = nullptr;
+		m_vecBullets[i]->m_psblob = nullptr;
+
 		SAFE_DELETE(m_vecBullets[i]);
 	}
 }
@@ -78,4 +88,13 @@ void BulletManager::instantiate(D3DXVECTOR3 pos, D3DXVECTOR3 dir)
 
 
 	m_enableIdx++;
+}
+
+void BulletManager::reset()
+{
+	for (int i = 0; i < m_vecBullets.size(); ++i)
+	{
+		m_vecBullets[i]->m_isEnabled = false;
+
+	}
 }

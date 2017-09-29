@@ -11,6 +11,13 @@ public:
 	void setTargetPos(gameObject* object);
 	
 	virtual D3DXMATRIX GetViewMat();
+
+public:
+	enum CAM_MODE {
+		FPS_MODE = 0,
+		TPS_MODE
+	};
+	CAM_MODE m_camMode;
 private:
 	float m_currentPitch = 0, m_currentYaw = 0;
 	float m_distance = 3.0f;

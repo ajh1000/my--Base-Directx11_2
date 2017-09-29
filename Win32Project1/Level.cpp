@@ -7,7 +7,8 @@
 #include "gameCameraThirdPerson.h"
 #include "BulletManager.h"
 #include "gameCrosshair.h"
-
+#include "gameEnemyManager.h"
+#include "UIhealthBar.h"
 Level::Level()
 {
 }
@@ -55,9 +56,15 @@ void Level::init()
 	/*
 		Bullet Pooling Manager
 	*/
-	BulletManager::GetInstance().init(10);
+	BulletManager::GetInstance().init(100);
 	
-	//global light direction;
+	/*
+		Enemy Pooling Manager
+	*/
+	gameEnemyManager::GetInstance().init(20);
+
+
+	//global light direction.
 	D3DXVECTOR3 lightDir = D3DXVECTOR3(1, -1, -1);
 	D3DXVec3Normalize(&lightDir, &lightDir);
 
@@ -113,18 +120,16 @@ void Level::init()
 	crosshair->transform.rotate(0, 0, 0);
 	gameUtil.m_vecGameObjects.push_back(crosshair);
 	gameUtil.m_mapTag["crosshair"] = crosshair;*/
-	//std::vector<gameObject*>::iterator it;
-	//for (it = gameUtil.m_vecGameObjects.begin(); it != gameUtil.m_vecGameObjects.end(); ++it)
-	//{
-	//	//(*it)->init();
-	//}
 
 
+	((gameCameraThirdPerson*)gameUtil.GetMainCamera())->m_vEye = D3DXVECTOR3(200, 200, -200);
+	int a = 0;
 }
 
 void Level::update()
 {
-	
+	gameCameraThirdPerson* camera = (gameCameraThirdPerson*)gameUtil.GetMainCamera();
+
 	if (keyMgr.IsPressed(VK_ESCAPE))
 	{
 		if (gameUtil.m_isPaused == false)
@@ -158,141 +163,42 @@ void Level::update()
 	if (gameUtil.m_isPaused == false)
 		gameUtil.GetMainCamera()->update();
 
-	//Model* player = (Model*)gameUtil.m_vecGameObjects[0];
-
-
-	//if (keyMgr.IsPressed(VK_LBUTTON)) // CREATE ENEMY
-	//{
-	//	gameUtil.GetMainCamera()->pick(gameUtil.m_mouseX, gameUtil.m_mouseY);
-
-	//	myPath.addAgent(gameUtil.GetMainCamera()->pickedPos[0],
-	//		gameUtil.GetMainCamera()->pickedPos[1],
-	//		gameUtil.GetMainCamera()->pickedPos[2]);
-
-	//	Model* enemy = new Model();
-	//	enemy->init("./DATA/ArmyPilot/", "ArmyPilot.x");
-	//	enemy->transform.setPos(gameUtil.GetMainCamera()->pickedPos[0],
-	//		gameUtil.GetMainCamera()->pickedPos[1],
-	//		gameUtil.GetMainCamera()->pickedPos[2]);
-	//	enemy->transform.setScale(0.02, 0.02, 0.02);
-	//	enemy->m_AnimName = "Idle";
-	//	enemy->m_lightProperties.lightDirection = D3DXVECTOR3(0, -1, 1);
-	//	gameUtil.m_vecEnemys.push_back(enemy);
-
-	//	m_agentOldPos.push_back(D3DXVECTOR3(myPath.crowd->getAgent(m_agentOldPos.size())->npos[0],
-	//		myPath.crowd->getAgent(m_agentOldPos.size())->npos[1],
-	//		myPath.crowd->getAgent(m_agentOldPos.size())->npos[2]));
-	//}
-
-	//if (keyMgr.IsPressed(VK_RBUTTON)) //SET PLAYER POS
-	//{
-	//	gameUtil.GetMainCamera()->pick(gameUtil.m_mouseX, gameUtil.m_mouseY);
-
-
-	//	player->transform.setPos(gameUtil.GetMainCamera()->pickedPos[0],
-	//		gameUtil.GetMainCamera()->pickedPos[1],
-	//		gameUtil.GetMainCamera()->pickedPos[2]);
-
-	//}
-	//if (keyMgr.IsPressed(VK_RETURN))
-	//{
-	//	gameUtil.GetMainCamera()->GameStart = true;
-
-
-	//	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
-	//	{
-	//		gameUtil.m_vecEnemys[i]->m_AnimName = "Run_Forwards";
-	//	}
-	//}
-
-
-	//if (gameUtil.GetMainCamera()->GameStart == true)
-	//{
-	//	dtNavMeshQuery* navquery = gameUtil.myPath->navQuery;
-
-	//	dtCrowd* pcrowd = gameUtil.myPath->crowd;
-	//	const dtQueryFilter* filter = pcrowd->getFilter(0);
-	//	const float* ext = pcrowd->getQueryExtents();
-
-	//	D3DXVECTOR3 playerPos = gameUtil.m_vecGameObjects[0]->transform.getPos();
-
-	//	float p[3] = {
-	//		playerPos.x,
-	//		playerPos.y,
-	//		playerPos.z };
-
-	//	navquery->findNearestPoly(p, ext, filter, &gameUtil.myPath->m_targetRef, gameUtil.myPath->m_targetPos);
-
-	//	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
-	//	{
-	//		D3DXVECTOR3 agentPos = {
-	//			myPath.crowd->getAgent(i)->npos[0],
-	//			myPath.crowd->getAgent(i)->npos[1],
-	//			myPath.crowd->getAgent(i)->npos[2]
-	//		};
-
-	//		D3DXVECTOR3 playerPos = player->transform.getPos();
-	//		float dist = D3DXVec3Length(&(playerPos - agentPos));
-	//		if (dist > 4)
-	//		{
-	//			gameUtil.m_vecEnemys[i]->m_AnimName = "Run_Forwards";
-
-	//			gameUtil.myPath->crowd->requestMoveTarget(i, gameUtil.myPath->m_targetRef, gameUtil.myPath->m_targetPos);
-
-	//			D3DXVECTOR3 agentOldPos = m_agentOldPos[i];
-
-	//			D3DXVECTOR3 agentNewPos = {
-	//				myPath.crowd->getAgent(i)->npos[0],
-	//				myPath.crowd->getAgent(i)->npos[1],
-	//				myPath.crowd->getAgent(i)->npos[2]
-	//			};
-
-	//			D3DXVECTOR3 agentDir = agentNewPos - agentOldPos;
-	//			D3DXVec3Normalize(&agentDir, &agentDir);
-
-	//			D3DXVECTOR3 forward = D3DXVECTOR3(0, 0, 1);
-
-	//			float angle = D3DXVec3Dot(&forward, &agentDir);
-	//			angle = acos(angle)* (180.0f / D3DX_PI);
-	//			if (agentDir.x >= 0)
-	//			{
-	//				gameUtil.m_vecEnemys[i]->transform.setRot(0, angle, 0);
-	//			}
-	//			else
-	//			{
-	//				gameUtil.m_vecEnemys[i]->transform.setRot(0, -angle, 0);
-	//			}
-
-	//			m_agentOldPos[i] = agentNewPos;
-	//		}
-	//		else
-	//		{
-	//			gameUtil.m_vecEnemys[i]->m_AnimName = "Idle_Firing";
-	//			static float elapsedTime = 0;
-	//			elapsedTime += gameTimer.getDeltaTime();
-	//			if (elapsedTime > 6.f)
-	//			{
-	//				Dead = true;
-
-	//				gameUtil.m_vecEnemys[i]->m_AnimName = "Idle";
-	//			}
-	//		}
-
-	//	}
-
-	//}
-	//for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
-	//{
-
-
-	//}
-
-/*
-	for (int i = 0; i < gameUtil.m_vecEnemys.size(); ++i)
+	if (keyMgr.IsPressed(VK_RETURN))
 	{
-		gameUtil.m_vecEnemys[i]->update();
-	}*/
+		camera->m_camMode = camera->TPS_MODE;
 
+	}
+
+	if (keyMgr.IsPressed(VK_1))
+	{
+		camera->m_camMode = camera->FPS_MODE;
+
+		camera->m_vEye = D3DXVECTOR3(200, 200, -200);
+		camera->m_vLookat = D3DXVECTOR3(0, 0, 0);
+
+		((UIhealthBar*)gameUtil.m_gameUIScene->m_mapUI["healthBar"])->reset();
+
+		gameEnemyManager::GetInstance().reset();
+		BulletManager::GetInstance().reset();
+
+		((gamePlayer*)gameUtil.m_mapTag["player"])->transform.setPos(0, 3, 0);
+
+		((gamePlayer*)gameUtil.m_mapTag["player"])->transform.setRot(0, 3, 0);
+		((gamePlayer*)gameUtil.m_mapTag["player"])->m_isDead = false;
+		//clear all velocity. 
+		((gamePlayer*)gameUtil.m_mapTag["player"])->m_rigidbody->setAngularVelocity(btVector3(0, 0, 0));
+		((gamePlayer*)gameUtil.m_mapTag["player"])->m_rigidbody->setLinearVelocity(btVector3(0, 0, 0));
+
+		((gamePlayer*)gameUtil.m_mapTag["player"])->m_rigidbody->getWorldTransform().setIdentity();
+		((gamePlayer*)gameUtil.m_mapTag["player"])->m_rigidbody->getWorldTransform().setOrigin(
+			btVector3(0, 3, 0));
+
+		for (int i = 0; i < gameUtil.myPath->crowd->getAgentCount(); ++i)
+		{
+			gameUtil.myPath->crowd->removeAgent(i);
+
+		}
+	}
 
 	for (int i = 0; i < gameUtil.m_vecGameObjects.size(); ++i)
 	{
@@ -304,13 +210,23 @@ void Level::update()
 
 void Level::lateUpdate()
 {
-	
+	gameCameraThirdPerson* camera = (gameCameraThirdPerson*)gameUtil.GetMainCamera();
+
+	if (gameUtil.m_isPaused == true
+			&& camera->m_camMode==camera->FPS_MODE)
+	{
+		myPath.update();
+
+	}
+
+
 	if (gameUtil.m_isPaused == false)
 	{
 		gameUtil.GetMainCamera()->lateUpdate();
 		((gamePlayer*)gameUtil.m_mapTag["player"])->lateUpdate();
-		//((gameCrosshair*)gameUtil.m_mapTag["crosshair"])->lateUpdate();
 		BulletManager::GetInstance().update();
+
+		gameEnemyManager::GetInstance().update();
 		myPath.update();
 		phyWorld.update();
 	}
@@ -327,6 +243,7 @@ void Level::render()
 	}
 
 	BulletManager::GetInstance().render();
+	gameEnemyManager::GetInstance().render();
 	m_uiScene.render();
 }
 

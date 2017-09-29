@@ -38,6 +38,12 @@ function damage(dmg)
 
 }
 
+function reset()
+{
+    game.add.tween(barFore.scale).to( { x:1 }, 500, Phaser.Easing.Bounce.Out, true);
+    tweenX=1;
+}
+
 function update() 
 {	
 }

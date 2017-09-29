@@ -11,17 +11,21 @@ gameObject::gameObject()
 
 gameObject::~gameObject()
 {
-	SAFE_RELEASE(m_vs);
-	SAFE_RELEASE(m_ps);
-	SAFE_RELEASE(m_layout);
-	SAFE_RELEASE(m_vertexBuffer);
-	SAFE_RELEASE(m_indexBuffer);
-	SAFE_RELEASE(m_WVPBuffer);
+	
+			SAFE_RELEASE(m_vs);
 
-	m_vsblob->Release();
-	m_vsblob = 0;
-	m_psblob->Release();
-	m_psblob = 0;
+		SAFE_RELEASE(m_ps);
+		SAFE_RELEASE(m_layout);
+		SAFE_RELEASE(m_vertexBuffer);
+		SAFE_RELEASE(m_indexBuffer);
+		SAFE_RELEASE(m_WVPBuffer);
+
+		SAFE_RELEASE(m_vsblob);
+		SAFE_RELEASE(m_psblob);
+	
+	
+	
+
 
 }
 

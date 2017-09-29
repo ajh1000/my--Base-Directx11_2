@@ -13,6 +13,7 @@ public:
 
 	void shutdown();
 	void instantiate(D3DXVECTOR3 pos, D3DXVECTOR3 dir);
+	void reset();
 	singleton_class(BulletManager)
 public:
 	float m_duration = 5.f;

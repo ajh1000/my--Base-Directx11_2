@@ -40,104 +40,113 @@ void gamePlayer::update()
 
 void gamePlayer::lateUpdate()
 {
+	gameCameraThirdPerson* mainCamera = (gameCameraThirdPerson*)gameUtil.GetMainCamera();
+
 	m_rigidbody->activate(true);
 
-	if (m_isDead)
+	if (mainCamera->m_camMode == mainCamera->TPS_MODE)
 	{
 
-		//m_rigidbody->setLinearFactor(btVector3(1, 1, 1));
-		//m_rigidbody->setAngularFactor(btVector3(1, 1, 1));
-		
-		btTransform bttransform;
-		m_rigidbody->getMotionState()->getWorldTransform(bttransform);
 
-		//최종값을 player 트랜스폼에 입력.
-		transform.setPos(bttransform.getOrigin().getX(),
-			bttransform.getOrigin().getY(),
-			bttransform.getOrigin().getZ());
 
-		btQuaternion quat = bttransform.getRotation();
-		D3DXQUATERNION d3dxquat = D3DXQUATERNION(quat.x(), quat.y(), quat.z(), quat.w());
-		transform.setRot(d3dxquat);
-		return;
-	}
-
-	if (m_slerpFactor >= 1.0f)
-		m_slerpFactor = 1.0f;
-
-	transform.setRot(m_OriginalQuat);
-
-	m_rigidbody->setLinearFactor(btVector3(1, 1, 1));
-	m_rigidbody->setAngularFactor(btVector3(0, 1, 0));
-
-	D3DXQuaternionSlerp(&m_OriginalQuat, &m_OriginalQuat, &m_desiredQuat, gameTimer.getDeltaTime()*10.f);
-
-	processingInput();
-
-	btDynamicsWorld* dynamicsWorld = gameUtil.m_physicsWorld->m_dynamicsWorld;
-	int numManifolds = dynamicsWorld->getDispatcher()->getNumManifolds();
-	for (int i = 0; i < numManifolds; i++)
-	{
-		btPersistentManifold* contactManifold = dynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
-		const btCollisionObject* obA = contactManifold->getBody0();
-		const btCollisionObject* obB = contactManifold->getBody1();
-
-		int numContacts = contactManifold->getNumContacts();
-		for (int j = 0; j < numContacts; j++)
+		if (m_isDead)
 		{
-			btManifoldPoint& pt = contactManifold->getContactPoint(j);
-			if (pt.getDistance() < 0.f)
-			{
-				if (obA->getUserPointer() != nullptr && obB->getUserPointer() != nullptr)
-				{
-					const btManifoldPoint& pt = contactManifold->getContactPoint(j);
-					const btVector3& normalOnB = pt.m_normalWorldOnB;
-					float power = 10;
 
-					if (!((string*)obA->getUserPointer())->compare("bullet"))
+			//m_rigidbody->setLinearFactor(btVector3(1, 1, 1));
+			//m_rigidbody->setAngularFactor(btVector3(1, 1, 1));
+
+			btTransform bttransform;
+			m_rigidbody->getMotionState()->getWorldTransform(bttransform);
+
+			//최종값을 player 트랜스폼에 입력.
+			transform.setPos(bttransform.getOrigin().getX(),
+				bttransform.getOrigin().getY(),
+				bttransform.getOrigin().getZ());
+
+			btQuaternion quat = bttransform.getRotation();
+			D3DXQUATERNION d3dxquat = D3DXQUATERNION(quat.x(), quat.y(), quat.z(), quat.w());
+			transform.setRot(d3dxquat);
+			return;
+		}
+
+		if (m_slerpFactor >= 1.0f)
+			m_slerpFactor = 1.0f;
+
+		transform.setRot(m_OriginalQuat);
+
+		m_rigidbody->setLinearFactor(btVector3(1, 1, 1));
+		m_rigidbody->setAngularFactor(btVector3(0, 1, 0));
+
+		D3DXQuaternionSlerp(&m_OriginalQuat, &m_OriginalQuat, &m_desiredQuat, gameTimer.getDeltaTime()*10.f);
+
+		processingInput();
+
+		btDynamicsWorld* dynamicsWorld = gameUtil.m_physicsWorld->m_dynamicsWorld;
+		int numManifolds = dynamicsWorld->getDispatcher()->getNumManifolds();
+		for (int i = 0; i < numManifolds; i++)
+		{
+			btPersistentManifold* contactManifold = dynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
+			const btCollisionObject* obA = contactManifold->getBody0();
+			const btCollisionObject* obB = contactManifold->getBody1();
+
+			int numContacts = contactManifold->getNumContacts();
+			for (int j = 0; j < numContacts; j++)
+			{
+				btManifoldPoint& pt = contactManifold->getContactPoint(j);
+				if (pt.getDistance() < 0.f)
+				{
+					if (obA->getUserPointer() != nullptr && obB->getUserPointer() != nullptr)
 					{
-						if (!((string*)obB->getUserPointer())->compare("player"))
+						const btManifoldPoint& pt = contactManifold->getContactPoint(j);
+						const btVector3& normalOnB = pt.m_normalWorldOnB;
+						float power = 10;
+
+						if (!((string*)obA->getUserPointer())->compare("bullet"))
 						{
-							m_rigidbody->applyCentralImpulse(normalOnB*power);
-							((UIhealthBar*)gameUtil.m_gameUIScene->m_mapUI["healthBar"])->TakeDamage(0.05);
-							
+							if (!((string*)obB->getUserPointer())->compare("player"))
+							{
+								m_rigidbody->applyCentralImpulse(normalOnB*power);
+								((UIhealthBar*)gameUtil.m_gameUIScene->m_mapUI["healthBar"])->TakeDamage(0.05);
+
+							}
 						}
-					}
-					else if (!((string*)obB->getUserPointer())->compare("bullet"))
-					{
-						if (!((string*)obA->getUserPointer())->compare("player"))
+						else if (!((string*)obB->getUserPointer())->compare("bullet"))
 						{
-							m_rigidbody->applyCentralImpulse(normalOnB*power);
-						((UIhealthBar*)gameUtil.m_gameUIScene->m_mapUI["healthBar"])->TakeDamage(0.05); 
-							
+							if (!((string*)obA->getUserPointer())->compare("player"))
+							{
+								m_rigidbody->applyCentralImpulse(normalOnB*power);
+								((UIhealthBar*)gameUtil.m_gameUIScene->m_mapUI["healthBar"])->TakeDamage(0.05);
+
+							}
 						}
 					}
 				}
 			}
+
 		}
 
+
+
+
+		//회전 y축 고정.
+		btTransform bttransform;
+
+		m_rigidbody->getMotionState()->getWorldTransform(bttransform);
+		btVector3 velocity = m_rigidbody->getAngularVelocity();
+		velocity.setX(0);
+		velocity.setZ(0);
+		m_rigidbody->setAngularVelocity(velocity);
+
+		//최종값을 player 트랜스폼에 입력.
+		transform.setPos(bttransform.getOrigin().getX(),
+			bttransform.getOrigin().getY() - 1,
+			bttransform.getOrigin().getZ());
+
+		btQuaternion quat = bttransform.getRotation();
+		D3DXQUATERNION d3dxquat = D3DXQUATERNION(quat.x(), quat.y(), quat.z(), quat.w());
+		//transform.setRot(d3dxquat);
+
 	}
-
-
-
-
-	//회전 y축 고정.
-	btTransform bttransform;
-	
-	m_rigidbody->getMotionState()->getWorldTransform(bttransform);
-	btVector3 velocity = m_rigidbody->getAngularVelocity();
-	velocity.setX(0);
-	velocity.setZ(0);
-	m_rigidbody->setAngularVelocity(velocity);
-	
-	//최종값을 player 트랜스폼에 입력.
-	transform.setPos(bttransform.getOrigin().getX(),
-		bttransform.getOrigin().getY() - 1,
-		bttransform.getOrigin().getZ());
-
-	btQuaternion quat = bttransform.getRotation();
-	D3DXQUATERNION d3dxquat = D3DXQUATERNION(quat.x(), quat.y(), quat.z(), quat.w());
-	//transform.setRot(d3dxquat);
 }
 
 
@@ -163,8 +172,8 @@ void gamePlayer::processingInput()
 			D3DXVECTOR3 firePoint = transform.getPos();
 			D3DXVECTOR3 fireDir = forward;
 			firePoint.y += 3.5;
-			firePoint += fireDir*3;
-			
+			firePoint += fireDir * 3;
+
 
 			BulletManager::GetInstance().instantiate(firePoint, fireDir);
 		}
@@ -173,7 +182,7 @@ void gamePlayer::processingInput()
 	{
 		gameUtil.m_gameUIScene->m_mapUI["crosshair"]->setEnable(false);
 	}
-	
+
 
 
 	/*
@@ -196,7 +205,7 @@ void gamePlayer::processingInput()
 			btVector3 currentVel = m_rigidbody->getLinearVelocity();
 			//m_rigidbody->setLinearVelocity(btVector3(diagonal.x*speed, currentVel.getY(), diagonal.z*speed));
 			m_rigidbody->applyCentralForce(btVector3(diagonal.x*speed, currentVel.getY(), diagonal.z*speed));
-			
+
 			//rotation
 
 			//Given unit (normalized) direction vector d

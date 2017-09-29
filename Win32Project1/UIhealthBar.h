@@ -13,6 +13,7 @@ public:
 	virtual void update();
 	virtual void render();
 	void TakeDamage(float dmg);
+	void reset();
 public:
 	float m_hp = 1;
 	

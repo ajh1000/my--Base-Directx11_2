@@ -85,6 +85,8 @@
       <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="gameEnemy.h" />
+    <ClInclude Include="gameEnemyManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -166,6 +168,8 @@
       <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="BulletManager.cpp" />
+    <ClCompile Include="gameEnemy.cpp" />
+    <ClCompile Include="gameEnemyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shaders">

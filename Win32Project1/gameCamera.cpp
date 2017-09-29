@@ -21,9 +21,9 @@ GameCamera::~GameCamera()
 }
 
 
-void GameCamera::pick(int x, int y)
+void GameCamera::pick(int x, int y, D3DXVECTOR3& vOutOrigin, D3DXVECTOR3& vOutDir)
 {
-	/*
+	
 
 	RECT rect;
 	GetClientRect(gameUtil.GetHWND(), &rect);
@@ -57,34 +57,9 @@ void GameCamera::pick(int x, int y)
 	D3DXVec3TransformNormal(&dir, &dir, &ViewInverse);
 	D3DXVec3Normalize(&dir, &dir);
 
-	float dist;
-
-	XMFLOAT3 xmorigin, xmdir;
-
-	memcpy(&xmorigin, &origin, sizeof(float) * 3);
-	memcpy(&xmdir, &dir, sizeof(float) * 3);
-
-
-	Model* mapAABB = (Model*)gameUtil.m_vecGameObjects[2];
-
-
-	bool hitMap = mapAABB->m_box.Intersects(XMLoadFloat3(&xmorigin), XMLoadFloat3(&xmdir), dist);
-	if (hitMap == true)
-	{
-		XMFLOAT3 hitpos;
-		XMVECTOR xmvecOri, xmvecDir;
-
-		xmvecOri = XMLoadFloat3(&xmorigin);
-		xmvecDir = XMLoadFloat3(&xmdir);
-
-		xmvecOri += xmvecDir*dist;
-		XMStoreFloat3(&hitpos, xmvecOri);
-
-		pickedPos[0] = hitpos.x;
-		pickedPos[1] = hitpos.y;
-		pickedPos[2] = hitpos.z;
-
-	}*/
+	vOutOrigin = origin;
+	vOutDir = dir;
+	
 }
 
 //FIRST PERSON CAMERA ALGORITHM.

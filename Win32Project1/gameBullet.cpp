@@ -17,7 +17,7 @@ void gameBullet::init()
 		Model::init("./DATA/barrel/", "barrel.obj");
 	transform.setScale(0.2, 0.2, 0.2);
 	
-	btCollisionShape* collisionShape = new btSphereShape(0.7);
+	btCollisionShape* collisionShape = new btSphereShape(0.9);
 
 	btDefaultMotionState* motionState =
 		new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(1000, 1000, 1000)));
@@ -97,3 +97,5 @@ void gameBullet::render()
 {
 	Model::render();
 }
+
+
