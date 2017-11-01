@@ -1,0 +1,1969 @@
+
+newmtl s_white
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_white.png
+
+
+
+newmtl 005030_06196_1_1_TransP_0
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_TransP_0.png
+
+
+
+newmtl s_stripe_TransP
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_stripe_TransP.png
+
+
+
+newmtl 005030_06196_1_1_11
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_11.png
+
+
+
+newmtl 005030_06196_1_1_12
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_12.png
+
+
+
+newmtl 005030_06196_1_1_19
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_19.png
+
+
+
+newmtl 005030_06196_1_1_20
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_20.png
+
+
+
+newmtl 005030_06196_1_1_13
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_13.png
+
+
+
+newmtl 005030_06196_1_1_5
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_5.png
+
+
+
+newmtl 005030_06196_1_1_22
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_22.png
+
+
+
+newmtl 005030_06196_1_1_40
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_40.png
+
+
+
+newmtl 005030_06196_1_1_23
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_23.png
+
+
+
+newmtl 005030_06196_1_1_27
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_27.png
+
+
+
+newmtl 005030_06196_1_1_28
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_28.png
+
+
+
+newmtl 005030_06196_1_1_39
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_39.png
+
+
+
+newmtl 005030_06196_1_1_10
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_10.png
+
+
+
+newmtl 005030_06196_1_1_41
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_41.png
+
+
+
+newmtl tex_PQ_saku_CCC
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_CCC.tga
+
+
+
+newmtl tex_PQ_saku_EEE
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_EEE.tga
+
+
+
+newmtl tex_PQ_saku_FFF
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_FFF.tga
+
+
+
+newmtl s_yellow
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_yellow.png
+
+
+
+newmtl 005030_06196_1_1_18
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_18.png
+
+
+
+newmtl 005030_06196_1_1_TransP_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_TransP_1.png
+
+
+
+newmtl 005030_06196_1_1_30
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_30.png
+
+
+
+newmtl 005030_06196_1_1_21
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_21.png
+
+
+
+newmtl 005030_06196_1_1_25
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_25.png
+
+
+
+newmtl 005030_06196_1_1_24
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_24.png
+
+
+
+newmtl 005030_06196_1_1_6
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_6.png
+
+
+
+newmtl 005030_06196_1_1_4
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_4.png
+
+
+
+newmtl 005030_06196_1_1_35
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_35.png
+
+
+
+newmtl 005030_06196_1_1_38
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_38.png
+
+
+
+newmtl 005030_06196_1_1_37
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_37.png
+
+
+
+newmtl tex_PQ_saku_AAA
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_AAA.tga
+
+
+
+newmtl tex_PQ_saku_DDD
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_DDD.tga
+
+
+
+newmtl tex_PQ_saku_GR
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_GR.tga
+
+
+
+newmtl 005030_06196_1_1_16
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_16.png
+
+
+
+newmtl tex_PQ_saku_BBB
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_BBB.tga
+
+
+
+newmtl 005030_06196_1_1_33
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_33.png
+
+
+
+newmtl mat_dashi_BLACKver
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Dashi/texture/tex_Dashi_BLACKver.tga
+
+
+
+newmtl mat_dashi_PQver
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Dashi/texture/tex_Dashi_PQver.tga
+
+
+
+newmtl mat_dashi_Dontaku
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Dashi/texture/tex_Dashi_Dontaku.tga
+
+
+
+newmtl mat_ChouchinWire
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+
+
+
+
+newmtl mat_chouchin
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Chouchin/texture/tex_Chouchin.tga
+
+
+
+newmtl mat_screen_Bx2
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Chouchin/texture/tex_screenRedWhite.tga
+
+
+
+newmtl mat_screen_A
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Chouchin/texture/tex_screenRedWhite.tga
+
+
+
+newmtl mat_screen_B
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Chouchin/texture/tex_screenRedWhite.tga
+
+
+
+newmtl fukuoka_object
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Fukuokaobject/Textures/fukuoka_object.png
+
+
+
+newmtl mat_man_Male
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Human/texture/tex_Human_Mail.tga
+
+
+
+newmtl mat_man_Female
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/PQAssets/Query-Chan-SD/Fukuoka_Props/Human/texture/tex_Human_Femail.tga
+
+
+
+newmtl tex_PQ_Green
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_Green.tga
+
+
+
+newmtl 005030_06196_1_1_34
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_34.png
+
+
+
+newmtl 005030_06196_1_1_43
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_43.png
+
+
+
+newmtl 005030_06196_1_1_44
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_44.png
+
+
+
+newmtl 005030_06196_1_1_52
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_52.png
+
+
+
+newmtl 005030_06196_1_1_59
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_59.png
+
+
+
+newmtl 005030_06196_1_1_61
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_61.png
+
+
+
+newmtl 005030_06196_1_1_26
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_26.png
+
+
+
+newmtl 005030_06196_1_1_54
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_54.png
+
+
+
+newmtl 005030_06196_1_1_57
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_57.png
+
+
+
+newmtl 005030_06196_1_1_45
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_45.png
+
+
+
+newmtl 005030_06196_1_1_46
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_46.png
+
+
+
+newmtl 005030_06196_1_1_36
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_36.png
+
+
+
+newmtl 005030_06196_1_1_51
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_51.png
+
+
+
+newmtl 005030_06196_1_1_60
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_60.png
+
+
+
+newmtl 005030_06196_1_1_42
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_42.png
+
+
+
+newmtl 005030_06196_1_1_53
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_53.png
+
+
+
+newmtl 005030_06196_1_1_55
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_55.png
+
+
+
+newmtl 005030_06196_1_1_56
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_56.png
+
+
+
+newmtl 005030_06196_1_1_31
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_31.png
+
+
+
+newmtl 005030_06196_1_1_32
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_32.png
+
+
+
+newmtl 005030_06196_1_1_49
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_49.png
+
+
+
+newmtl 005030_06196_1_1_29
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_29.png
+
+
+
+newmtl 005030_06196_1_1_62
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_62.png
+
+
+
+newmtl 005030_06196_1_1_47
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_47.png
+
+
+
+newmtl 005030_06196_1_1_58
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_58.png
+
+
+
+newmtl 005030_06196_1_1_48
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_48.png
+
+
+
+newmtl 005030_06196_1_1_50
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_50.png
+
+
+
+newmtl 005030_06196_1_1_63
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_63.png
+
+
+
+newmtl 005030_06196_1_1_0
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_0.png
+
+
+
+newmtl 005030_06196_1_1_3
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_3.png
+
+
+
+newmtl 005030_06196_1_1_2
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_2.png
+
+
+
+newmtl 005030_06196_1_1_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_1.png
+
+
+
+newmtl 005030_06196_1_1_14
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_14.png
+
+
+
+newmtl 005030_06196_1_1_15
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_15.png
+
+
+
+newmtl 005030_06196_1_1_7
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_7.png
+
+
+
+newmtl 005030_06196_1_1_8
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_8.png
+
+
+
+newmtl tex_PQ_bace02
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_bace02.png
+
+
+
+newmtl S_G_000187_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000187_S.png
+
+
+
+newmtl 005030_06196_L_-90176_0_01_01_15
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90176_0_01_01_15.png
+
+
+
+newmtl 005030_06196_L_-90213_0_01_01_30
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90213_0_01_01_30.png
+
+
+
+newmtl s_gas1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_gas1.png
+
+
+
+newmtl tex_PQ_bace01
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_bace01.png
+
+
+
+newmtl S_G_000141_F
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000141_F.png
+
+
+
+newmtl S_G_000141_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000141_S.png
+
+
+
+newmtl S_G_000133_E
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000133_E.png
+
+
+
+newmtl S_G_000147_F
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000147_F.png
+
+
+
+newmtl 005030_06196_L_-102989_0_01_01_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-102989_0_01_01_1.png
+
+
+
+newmtl 005030_06196_L_-90214_0_01_01_212
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90214_0_01_01_212.png
+
+
+
+newmtl 005030_06196_L_-90214_0_01_01_213
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90214_0_01_01_213.png
+
+
+
+newmtl 005030_06196_1_1_17
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_17.png
+
+
+
+newmtl 005030_06196_L_-90214_0_01_01_219
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90214_0_01_01_219.png
+
+
+
+newmtl 005030_06196_L_-90173_0_01_01_49
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90173_0_01_01_49.png
+
+
+
+newmtl 005030_06196_L_-90173_0_01_01_50
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90173_0_01_01_50.png
+
+
+
+newmtl tex_PQ_Road
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_Road.tga
+
+
+
+newmtl tex_PQ_ground_fukuoka
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_ground_fukuoka.tga
+
+
+
+newmtl s_hodou_hai_k
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_hodou_hai_k.png
+
+
+
+newmtl 005030_06196_L_-91007_0_01_01_4
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-91007_0_01_01_4.png
+
+
+
+newmtl 005030_06196_L_-91005_0_01_01_29
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-91005_0_01_01_29.png
+
+
+
+newmtl 005030_06196_L_-90177_0_01_01_16
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90177_0_01_01_16.png
+
+
+
+newmtl 005030_06196_L_-90177_0_01_01_17
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90177_0_01_01_17.png
+
+
+
+newmtl 005030_06196_L_-90215_0_01_01_16
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90215_0_01_01_16.png
+
+
+
+newmtl 005030_06196_L_-90229_0_01_01_70
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90229_0_01_01_70.png
+
+
+
+newmtl 005030_06196_L_-90227_0_01_01_203
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90227_0_01_01_203.png
+
+
+
+newmtl 005030_06196_L_-96312_0_01_01_10
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-96312_0_01_01_10.png
+
+
+
+newmtl tex_PQ_WhiteBlock
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_WhiteBlock.png
+
+
+
+newmtl 005030_06196_1_1_9
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_9.png
+
+
+
+newmtl 005030_06196_L_-90224_0_01_01_65
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90224_0_01_01_65.png
+
+
+
+newmtl 005030_06196_L_-90206_0_01_01_70
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90206_0_01_01_70.png
+
+
+
+newmtl 005030_06196_L_-90206_0_01_01_71
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90206_0_01_01_71.png
+
+
+
+newmtl 005030_06196_L_-90206_0_01_01_69
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90206_0_01_01_69.png
+
+
+
+newmtl s_saku001_Koukyou_0000_TransP
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_saku001_Koukyou_0000_TransP.png
+
+
+
+newmtl 005030_06196_L_-96211_0_01_01_51
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-96211_0_01_01_51.png
+
+
+
+newmtl tex_PQ_acrosTree
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_acrosTree.tga
+
+
+
+newmtl PQ_River
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+
+
+
+
+newmtl 005030_06196_1_1_64
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_64.png
+
+
+
+newmtl tex_PQ_S_G_000187_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_S_G_000187_S.png
+
+
+
+newmtl 005030_06196_L_-102036_0_01_01_5
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-102036_0_01_01_5.png
+
+
+
+newmtl 005030_06196_L_-90153_0_01_01_12
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90153_0_01_01_12.png
+
+
+
+newmtl 005030_06196_L_-90153_0_01_01_13
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90153_0_01_01_13.png
+
+
+
+newmtl 005030_06196_L_-102025_0_01_01_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-102025_0_01_01_1.png
+
+
+
+newmtl S_G_000133_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000133_S.png
+
+
+
+newmtl S_G_000112_F
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000112_F.png
+
+
+
+newmtl tex_fukuoka
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_fukuoka.png
+
+
+
+newmtl S_G_000112_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000112_S.png
+
+
+
+newmtl 005030_06196_L_-90211_0_01_01_67
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90211_0_01_01_67.png
+
+
+
+newmtl 005030_06196_L_-90211_0_01_01_71
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90211_0_01_01_71.png
+
+
+
+newmtl 005030_06196_L_-90721_0_01_01_1078
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90721_0_01_01_1078.png
+
+
+
+newmtl s_black_TransP
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_black_TransP.png
+
+
+
+newmtl 005030_06196_L_-90147_0_01_01_45
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90147_0_01_01_45.png
+
+
+
+newmtl 005030_06196_L_-102050_0_01_01_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-102050_0_01_01_1.png
+
+
+
+newmtl 005030_06196_L_-90721_0_01_01_1098
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90721_0_01_01_1098.png
+
+
+
+newmtl 005030_06196_L_-90721_0_01_01_1095
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90721_0_01_01_1095.png
+
+
+
+newmtl tex_PQ_e_window
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_e_window.png
+
+
+
+newmtl tex_PQ_saku_wood
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_saku_wood.png
+
+
+
+newmtl tex_PQ_e_chain2
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_e_chain2.png
+
+
+
+newmtl s_koujichuumuji
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_koujichuumuji.png
+
+
+
+newmtl 005030_06196_L_-102048_0_01_01_42
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-102048_0_01_01_42.png
+
+
+
+newmtl 005030_06196_L_-90225_0_01_01_197
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90225_0_01_01_197.png
+
+
+
+newmtl 005030_06196_L_-90225_0_01_01_198
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90225_0_01_01_198.png
+
+
+
+newmtl 005030_06196_L_-90222_0_01_01_392
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90222_0_01_01_392.png
+
+
+
+newmtl 005030_06196_L_-90719_0_01_01_11
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90719_0_01_01_11.png
+
+
+
+newmtl 005030_06196_L_-90222_0_01_01_401
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90222_0_01_01_401.png
+
+
+
+newmtl 005030_06196_L_-100650_0_01_01_237
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-100650_0_01_01_237.png
+
+
+
+newmtl 005030_06196_L_-90205_0_01_01_30
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90205_0_01_01_30.png
+
+
+
+newmtl 005030_06196_L_-99385_0_01_01_6
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-99385_0_01_01_6.png
+
+
+
+newmtl 005030_06196_L_-99385_0_01_01_7
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-99385_0_01_01_7.png
+
+
+
+newmtl 005030_06196_L_-99385_0_01_01_1
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-99385_0_01_01_1.png
+
+
+
+newmtl tex_PQ_chain
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_chain.png
+
+
+
+newmtl 005030_06196_1_1_TransP_2
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_1_1_TransP_2.png
+
+
+
+newmtl 005030_06196_L_-99961_0_01_01_4
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-99961_0_01_01_4.png
+
+
+
+newmtl 005030_06196_L_-90151_0_01_01_19
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90151_0_01_01_19.png
+
+
+
+newmtl S_G_000181_F
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000181_F.png
+
+
+
+newmtl 005030_06196_L_-90193_0_01_01_40
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90193_0_01_01_40.png
+
+
+
+newmtl s_sokuheki_0003
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_sokuheki_0003.png
+
+
+
+newmtl 005030_06196_L_-96854_0_01_01_3
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-96854_0_01_01_3.png
+
+
+
+newmtl 005030_06196_L_-90717_0_01_01_572
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90717_0_01_01_572.png
+
+
+
+newmtl tex_PQ_RailWall
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_RailWall.png
+
+
+
+newmtl tex_PQ_RailWall02
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_RailWall02.png
+
+
+
+newmtl s_tetudou_bridgegirder
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_tetudou_bridgegirder.png
+
+
+
+newmtl s_tetudou_rail_TransP
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/s_tetudou_rail_TransP.png
+
+
+
+newmtl 005030_06196_L_-90185_0_01_01_13
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90185_0_01_01_13.png
+
+
+
+newmtl S_G_000147_S
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/S_G_000147_S.png
+
+
+
+newmtl tex_PQ_window
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/tex_PQ_window.png
+
+
+
+newmtl 005030_06196_L_-90228_0_01_01_121
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90228_0_01_01_121.png
+
+
+
+newmtl 005030_06196_L_-90198_0_01_01_170
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90198_0_01_01_170.png
+
+
+
+newmtl 005030_06196_L_-90195_0_01_01_68
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90195_0_01_01_68.png
+
+
+
+newmtl 005030_06196_L_-90194_0_01_01_101
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90194_0_01_01_101.png
+
+
+
+newmtl 005030_06196_L_-90192_0_01_01_25
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Textures/005030_06196_L_-90192_0_01_01_25.png
+
+
+
+newmtl citydoom
+Ka  0.6 0.6 0.6
+Kd  0.6 0.6 0.6
+Ks  0.9 0.9 0.9
+d  1.0
+Ns  0.0
+illum 2
+map_Kd Assets/ZRNAssets/005030_06196_1_1/Models/citydoom/citydoom.png
+
+

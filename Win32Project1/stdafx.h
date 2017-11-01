@@ -78,6 +78,8 @@ using namespace DirectX;
 #include "Types.h"
 #include "KeyManager.h"
 
+
+
 /*
 XMFLOAT4X4& xmIdentityMat()
 {

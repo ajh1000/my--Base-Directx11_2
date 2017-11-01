@@ -17,7 +17,7 @@ void cube_tex::init()
 	gameObject::Init_compileShader("./cube_tex_vs.hlsl", "./cube_tex_ps.hlsl");
 	gameObject::Init_polygonLayout(gameObject::EPolygonLayout::LAYOUT_PT);
 	
-	vertex_pt vertices[3] = {};
+	vertex_pt vertices[3] ;
 	vertices[0].pos = D3DXVECTOR3(-1.0f, -1.0f, 0.0f);  // Bottom left.
 	vertices[0].uv = D3DXVECTOR2(0.0f, 1.0f);
 

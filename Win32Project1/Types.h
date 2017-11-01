@@ -28,6 +28,12 @@ struct vertex_pc
 
 struct vertex_pt
 {
+	vertex_pt() {}
+	vertex_pt(D3DXVECTOR3 _pos, D3DXVECTOR2 _uv)
+	{
+		pos = _pos;
+		uv = _uv;
+	}
 	D3DXVECTOR3 pos;
 	D3DXVECTOR2 uv;
 };

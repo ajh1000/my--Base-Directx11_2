@@ -16,6 +16,7 @@ cbuffer AlphaBlendBuffer : register(c1)
 {
 	float alpha;
 	float3 BlendBufferPadding;
+	
 };
 
 //////////////

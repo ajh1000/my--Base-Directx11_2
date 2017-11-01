@@ -89,9 +89,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\moula\Desktop\DirectXTex-master\DirectXTex;C:\Program Files %28x86%29\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\moula\Desktop\assimp-3.3.1\include\assimp;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\admin\Documents\BulletPhysics3_Build\lib\Debug;C:\Users\moula\Desktop\DirectXTex-master\DirectXTex\Bin\Desktop_2015\Win32\Debug\DirectXTex.tlog;C:\Program Files %28x86%29\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\moula\Desktop\assimp_build_3\lib\Debug;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\Program Files %28x86%29\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\bin;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;C:\Users\moula\Desktop\assimp_build_3\bin\Debug;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletFileLoader;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\BulletWorldImporter;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\master-src;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\DetourCrowd\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\Detour\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\include\assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\BulletPhysics\lib\Release;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\DirectXTex\lib\release;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Detour\lib\release;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\lib\x86;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Utilities\bin\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Assimp\bin\x86;C:\Users\admin\Desktop\my--Base-Directx11_2\Win32Project1\Awesomium\build\bin;$(ExecutablePath)</ExecutablePath>
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,14 +140,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ShowIncludes>false</ShowIncludes>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>DirectXTex.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BulletFileLoader.lib;BulletWorldImporter.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;detour.lib;DirectXTex.lib;assimp.lib;awesomium.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -182,7 +182,9 @@
     <ClInclude Include="gameBullet.h" />
     <ClInclude Include="gameCamera.h" />
     <ClInclude Include="gameCameraThirdPerson.h" />
+    <ClInclude Include="gameCapsule.h" />
     <ClInclude Include="gameCrosshair.h" />
+    <ClInclude Include="gameCubemap.h" />
     <ClInclude Include="gameEnemy.h" />
     <ClInclude Include="gameEnemyManager.h" />
     <ClInclude Include="gameMap.h" />
@@ -221,7 +223,9 @@
     <ClCompile Include="gameBullet.cpp" />
     <ClCompile Include="gameCamera.cpp" />
     <ClCompile Include="gameCameraThirdPerson.cpp" />
+    <ClCompile Include="gameCapsule.cpp" />
     <ClCompile Include="gameCrosshair.cpp" />
+    <ClCompile Include="gameCubemap.cpp" />
     <ClCompile Include="gameEnemy.cpp" />
     <ClCompile Include="gameEnemyManager.cpp" />
     <ClCompile Include="gameMap.cpp" />
@@ -251,6 +255,24 @@
     <ClCompile Include="UImenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="cubemap_ps.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SKYMAP_PS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SKYMAP_PS</EntryPointName>
+    </FxCompile>
+    <FxCompile Include="cubemap_vs.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.0</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SKYMAP_VS</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SKYMAP_VS</EntryPointName>
+    </FxCompile>
     <FxCompile Include="cube_normal_ps.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>

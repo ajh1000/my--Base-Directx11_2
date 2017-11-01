@@ -9,6 +9,9 @@
 #include "gameCrosshair.h"
 #include "gameEnemyManager.h"
 #include "UIhealthBar.h"
+#include "gameCubemap.h"
+#include "gameCapsule.h"
+
 Level::Level()
 {
 }
@@ -35,6 +38,15 @@ void Level::init()
 {
 	gameUtil.m_isPaused = false;
 
+	
+		//Cubemap
+	
+	gameCubemap* cubemap = new gameCubemap();
+	cubemap->init();
+	
+	gameUtil.m_vecGameObjects.push_back(cubemap);
+	gameUtil.m_mapTag["cubemap"] = cubemap;
+	
 	/*
 		UI
 	*/
@@ -106,9 +118,66 @@ void Level::init()
 	pmap->init("./DATA/map2/", "map2.obj");
 	pmap->transform.setPos(0, 0, 0);
 	pmap->transform.setRot(0, 0, 0);
+	//pmap->transform.setScale(10, 10, 10);
 	player->m_lightProperties.lightDirection = lightDir;
 	gameUtil.m_vecGameObjects.push_back(pmap);
 	gameUtil.m_mapTag["map"] = pmap;
+
+	/*
+		CAPSULE
+	*/
+	gameCapsule* capsule = new gameCapsule();
+	capsule->init("./data/capsule/", "capsule.obj");
+	capsule->transform.setPos(10, 0, -14);
+	capsule->transform.setScale(0.5, 0.5, 0.5);
+	gameUtil.m_vecGameObjects.push_back(capsule);
+	
+	/*
+		//¾Æ±º
+	*/
+	Model* aliance = new Model();
+	aliance->init("./DATA/spider/", "Spider_3.fbx");
+	aliance->transform.setPos(0,250, 0);
+	aliance->transform.setRot(0, 90, 0);
+	aliance->transform.setScale(0.02, 0.02, 0.02);
+	aliance->setAnimation("Idle_Aim");
+	gameUtil.m_vecGameObjects.push_back(aliance);
+	
+	Model* aliance2 = new Model();
+	aliance2->init("./DATA/ArmyPilot/", "ArmyPilot.x");
+	aliance2->transform.setPos(-13, 0, 2);
+	aliance2->transform.setRot(0, 90, 0);
+	aliance2->setAnimation("Idle_Aim");
+	aliance2->transform.setScale(0.02, 0.02, 0.02);
+	gameUtil.m_vecGameObjects.push_back(aliance2);
+
+
+	Model* aliance3 = new Model();
+	aliance3->init("./DATA/ArmyPilot/", "ArmyPilot.x");
+	aliance3->transform.setPos(-16, 0, 4);
+	aliance3->transform.setRot(0, 90, 0);
+	aliance3->setAnimation("Idle_Aim");
+	aliance3->transform.setScale(0.02, 0.02, 0.02);
+	gameUtil.m_vecGameObjects.push_back(aliance3);
+	
+
+	Model* aliance4 = new Model();
+	aliance4->init("./DATA/ArmyPilot/", "ArmyPilot.x");
+	aliance4->transform.setPos(-18, 0, -2);
+	aliance4->transform.setRot(0, 90, 0);
+	aliance4->setAnimation("Idle_Aim");
+	aliance4->transform.setScale(0.02, 0.02, 0.02);
+	gameUtil.m_vecGameObjects.push_back(aliance4);
+
+
+	Model* aliance5 = new Model();
+	aliance5->init("./DATA/ArmyPilot/", "ArmyPilot.x");
+	aliance5->transform.setPos(-17, 0, -4);
+	aliance5->transform.setRot(0, 90, 0);
+	aliance5->setAnimation("Idle_Aim");
+	aliance5->transform.setScale(0.02, 0.02, 0.02);
+	gameUtil.m_vecGameObjects.push_back(aliance5);
+	
 
 	/*
 	crosshair

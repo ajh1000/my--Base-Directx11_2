@@ -1,2 +1,12 @@
-[0810/174628:INFO:(0)] WebCore is now online.
-[0810/174628:INFO:(0)] Running Awesomium 1.7.5.1
+[1102/042034:INFO:(0)] WebCore is now online.
+[1102/042034:INFO:(0)] Running Awesomium 1.7.5.1
+[1102/042034:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042037:INFO:gpu_child_thread.cc(111)] gpu_info_collector::CollectGraphicsInfo complete. success = 1
+[1102/042037:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042037:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042040:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042043:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042043:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042050:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042054:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2
+[1102/042054:INFO:dhcp_proxy_script_adapter_fetcher_win.cc(265)] Error fetching PAC URL from DHCP: 2

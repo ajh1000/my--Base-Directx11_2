@@ -19,7 +19,7 @@ void gamePlayer::init(char* dir, char* FileName)
 
 	setAnimation("Idle_Aim");
 
-	gameUtil.m_physicsWorld->CreateCapsuleRigidbody(transform.getPos(), 0.5, 0.8, 2, "player");
+	gameUtil.m_physicsWorld->CreateCapsuleRigidbody(transform.getPos(), 1, 1, 2, "player");
 	m_rigidbody = gameUtil.m_physicsWorld->m_mapRigidbody["player"];
 
 	m_strType = "player";

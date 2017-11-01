@@ -10,6 +10,7 @@ public:
 	virtual ~textureclass();
 	
 	bool load(std::string dir);
+	void loadCubemap(string dir);
 	ID3D11ShaderResourceView* GetTexture();
 	void render();
 private:
