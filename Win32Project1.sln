@@ -16,6 +16,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BulletDynamics", "Win32Proj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinearMath", "Win32Project1\BulletPhysics\src\LinearMath\LinearMath.vcxproj", "{065F470B-6A28-328B-9EE8-D47AA5B0732E}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -98,6 +100,16 @@ Global
 		{065F470B-6A28-328B-9EE8-D47AA5B0732E}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|Win32
 		{065F470B-6A28-328B-9EE8-D47AA5B0732E}.RelWithDebInfo|x86.ActiveCfg = RelWithDebInfo|Win32
 		{065F470B-6A28-328B-9EE8-D47AA5B0732E}.RelWithDebInfo|x86.Build.0 = RelWithDebInfo|Win32
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Debug|x64.ActiveCfg = Debug
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Debug|x86.ActiveCfg = Debug
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.MinSizeRel|x64.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.MinSizeRel|x86.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Profile|x64.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Profile|x86.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Release|x64.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.Release|x86.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.RelWithDebInfo|x64.ActiveCfg = Release
+		{CA1C7C61-1C9A-476B-ACF1-F2176DDE4891}.RelWithDebInfo|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

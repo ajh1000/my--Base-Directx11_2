@@ -179,7 +179,7 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	// Set the handle for the window to render to.
     swapChainDesc.OutputWindow = hwnd;
 
-    swapChainDesc.SampleDesc.Count = 4;
+    swapChainDesc.SampleDesc.Count =1;
     swapChainDesc.SampleDesc.Quality = 0;
 
 	// Set to full screen or windowed mode.
@@ -222,9 +222,6 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 			&featureLevel,
 			&m_deviceContext);
 
-	UINT msaaQuality;
-	m_device->CheckMultisampleQualityLevels(
-		DXGI_FORMAT_R8G8B8A8_UNORM, 8, &msaaQuality);
 	
 	IDXGIDevice* dxgiDevice = 0;
 	m_device->QueryInterface(__uuidof(IDXGIDevice), (void**)&dxgiDevice);
@@ -235,11 +232,12 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	IDXGIFactory* dxgiFactory = 0;
 	dxgiAdapter->GetParent(__uuidof(IDXGIFactory), (void**)&dxgiFactory);
 
-	swapChainDesc.SampleDesc.Count =8;
-	swapChainDesc.SampleDesc.Quality = msaaQuality-1;
+	swapChainDesc.SampleDesc.Count =1;
+	swapChainDesc.SampleDesc.Quality = 0;
 
 
 	hr=dxgiFactory->CreateSwapChain(m_device, &swapChainDesc, &m_swapChain);
+
 
 
 
@@ -279,7 +277,7 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	depthBufferDesc.MipLevels = 1;
 	depthBufferDesc.ArraySize = 1;
 	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-	depthBufferDesc.SampleDesc.Count =8;
+	depthBufferDesc.SampleDesc.Count =1;
 	depthBufferDesc.SampleDesc.Quality = 0; 
 	depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	depthBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
@@ -354,7 +352,7 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	rasterDesc.DepthClipEnable = true;
 	rasterDesc.FillMode = D3D11_FILL_SOLID;
 	rasterDesc.FrontCounterClockwise = false;
-	rasterDesc.MultisampleEnable = true;
+	rasterDesc.MultisampleEnable = false;
 	rasterDesc.ScissorEnable = false;
 	rasterDesc.SlopeScaledDepthBias = 0.0f;
 
@@ -434,10 +432,8 @@ bool D3DClass::Initialize(HWND hwnd,bool vsync )
 	mainCamera->setOrthoMatrix(m_orthoMatrix);
 
 	
-
 	//create objects & set them into gameworld
 	level.init();
-	
     return true;
 }
 
